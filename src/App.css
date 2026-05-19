@@ -1,0 +1,115 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.game-header {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #aa3bff, #ff3b8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  color: #8b8e9f;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.subtitle code {
+  background: #1f2028;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #ff3b8b;
+  font-family: monospace;
+}
+
+.game-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.setup-card, .game-board {
+  background: #16171d;
+  border: 1px solid #2e303a;
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.setup-card h2, .game-board h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: #f3f4f6;
+  margin-bottom: 1rem;
+}
+
+.setup-card p {
+  color: #9ca3af;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.placeholder-deck {
+  border: 2px dashed #aa3bff44;
+  background: rgba(170, 59, 255, 0.03);
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  color: #9ca3af;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #aa3bff, #852ec7);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(170, 59, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(170, 59, 255, 0.6);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: #2e303a;
+  color: #f3f4f6;
+  border: 1px solid #3f4252;
+}
+
+.btn-secondary:hover {
+  background: #3f4252;
+  color: #ffffff;
+}
