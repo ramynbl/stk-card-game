@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import './App.css';
+import LandingScreen from './pages/LandingScreen/LandingScreen';
 
 function App() {
+  const [started, setStarted] = useState(false);
   const [selectedLeft, setSelectedLeft] = useState(null);
   const [selectedRight, setSelectedRight] = useState(null);
+
+  if (!started) {
+    return <LandingScreen onStart={() => setStarted(true)} />;
+  }
 
   // Générateur pour la grille de gauche
   const renderLeftGrid = () => {
