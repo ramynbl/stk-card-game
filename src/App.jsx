@@ -3,9 +3,19 @@ import './index.css';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
-import LandingScreen from './pages/LandingScreen/LandingScreen';
+import pairsData from './data/pairs.json';
 
-const LINK_OFFSET = 18; // Half of the 36px gap so they touch perfectly
+const ROUND_PAIRS = pairsData.pairs.slice(0, 8);
+const LINK_OFFSET = 18;
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 const inspirationVariants = {
   idle:            { x: 0 },
@@ -58,8 +68,16 @@ function App() {
   const [linkStatus, setLinkStatus]       = useState('idle');
   const [currentView, setCurrentView]     = useState('sequence-1');
   const [wrongAttempt, setWrongAttempt]   = useState(false);
+  const [matchedPairIds, setMatchedPairIds] = useState([]);
+  const [shuffledInspiration] = useState(() => shuffleArray(ROUND_PAIRS));
+  const [shuffledInnovation]  = useState(() => shuffleArray(ROUND_PAIRS));
 
   const isLocked = linkStatus !== 'idle';
+  const allFound = matchedPairIds.length === ROUND_PAIRS.length;
+
+  const selectedLeftPair  = ROUND_PAIRS.find(p => p.id === selectedLeft)  ?? null;
+  const selectedRightPair = ROUND_PAIRS.find(p => p.id === selectedRight) ?? null;
+  const linkedPair        = ROUND_PAIRS.find(p => p.id === selectedLeft)  ?? null;
 
   const handleLier = () => {
     if (isLocked) return;
@@ -81,10 +99,11 @@ function App() {
   };
 
   const handleSuivant = () => {
+    setMatchedPairIds(prev => [...prev, selectedLeft]);
     setLinkStatus('idle');
     setSelectedLeft(null);
     setSelectedRight(null);
-    setCurrentView('sequence-2');
+    setWrongAttempt(false);
   };
 
   const handleReessayer = () => {
@@ -95,39 +114,33 @@ function App() {
 
   const showDescriptions = linkStatus === 'idle' && !wrongAttempt;
 
-  if (!started) {
-    return <LandingScreen onStart={() => setStarted(true)} />;
-  }
+  const renderLeftGrid = () => shuffledInspiration.map((pair) => {
+    const isSelected = selectedLeft === pair.id;
+    const isMatched  = matchedPairIds.includes(pair.id);
+    return (
+      <div
+        key={`left-${pair.id}`}
+        className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
+        onClick={() => !isLocked && !isMatched && setSelectedLeft(pair.id)}
+      >
+        <img src={pair.inspiration.image} alt={pair.inspiration.alt} className="grid-img" />
+      </div>
+    );
+  });
 
-  const renderLeftGrid = () => {
-    return Array.from({ length: 8 }).map((_, i) => {
-      const isSelected = selectedLeft === i;
-      return (
-        <div
-          key={`left-${i}`}
-          className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked ? 'locked' : ''}`}
-          onClick={() => !isLocked && setSelectedLeft(i)}
-        >
-          <img src="/assets/cards/inspiration/card-inspiration-01.png" alt="Inspiration" className="grid-img" />
-        </div>
-      );
-    });
-  };
-
-  const renderRightGrid = () => {
-    return Array.from({ length: 8 }).map((_, i) => {
-      const isSelected = selectedRight === i;
-      return (
-        <div
-          key={`right-${i}`}
-          className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked ? 'locked' : ''}`}
-          onClick={() => !isLocked && setSelectedRight(i)}
-        >
-          <img src="/assets/cards/innovation/card-innovation-01.png" alt="Innovation" className="grid-img" />
-        </div>
-      );
-    });
-  };
+  const renderRightGrid = () => shuffledInnovation.map((pair) => {
+    const isSelected = selectedRight === pair.id;
+    const isMatched  = matchedPairIds.includes(pair.id);
+    return (
+      <div
+        key={`right-${pair.id}`}
+        className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
+        onClick={() => !isLocked && !isMatched && setSelectedRight(pair.id)}
+      >
+        <img src={pair.innovation.image} alt={pair.innovation.alt} className="grid-img" />
+      </div>
+    );
+  });
 
   return (
     <div className="container">
@@ -136,8 +149,11 @@ function App() {
           <h1>STK</h1>
           <span>ARCHITECTURE</span>
         </div>
-        <div className="sequence">
-          {currentView === 'sequence-1' ? 'Séquence 1/4' : 'Séquence 2/4'}
+        <div className="header-right">
+          <div className="sequence">
+            {currentView === 'sequence-1' ? 'Séquence 1/4' : 'Séquence 2/4'}
+          </div>
+          <div className="pairs-counter">{matchedPairIds.length}/{ROUND_PAIRS.length} paires trouvées</div>
         </div>
       </header>
 
@@ -164,10 +180,14 @@ function App() {
                 onAnimationComplete={handleAnimationComplete}
               >
                 <div className="card placeholder-card-left">
-                  <img src="/assets/cards/inspiration/card-inspiration-01.png" alt="Nageoires de baleine" className="card-img" />
+                  <img
+                    src={selectedLeftPair?.inspiration.image ?? '/assets/cards/inspiration/card-inspiration-01.webp'}
+                    alt={selectedLeftPair?.inspiration.alt ?? 'Inspiration'}
+                    className="card-img"
+                  />
                 </div>
                 <AnimatePresence>
-                  {showDescriptions && (
+                  {showDescriptions && selectedLeftPair && (
                     <motion.div
                       className="description"
                       initial={{ opacity: 0 }}
@@ -175,8 +195,8 @@ function App() {
                       exit={{ opacity: 0, transition: { duration: 0 } }}
                       transition={{ duration: 0.3 }}
                     >
-                      <h3>Nageoires de baleine</h3>
-                      <p>Sa morphologie brise la résistance du courant pour glisser avec un effort minimal.</p>
+                      <h3>{selectedLeftPair.inspiration.title}</h3>
+                      <p>{selectedLeftPair.inspiration.shortDescription}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -190,10 +210,14 @@ function App() {
                 transition={getTransition(linkStatus)}
               >
                 <div className="card placeholder-card-right">
-                  <img src="/assets/cards/innovation/card-innovation-01.png" alt="Éoliennes" className="card-img" />
+                  <img
+                    src={selectedRightPair?.innovation.image ?? '/assets/cards/innovation/card-innovation-01.webp'}
+                    alt={selectedRightPair?.innovation.alt ?? 'Innovation'}
+                    className="card-img"
+                  />
                 </div>
                 <AnimatePresence>
-                  {showDescriptions && (
+                  {showDescriptions && selectedRightPair && (
                     <motion.div
                       className="description"
                       initial={{ opacity: 0 }}
@@ -201,8 +225,8 @@ function App() {
                       exit={{ opacity: 0, transition: { duration: 0 } }}
                       transition={{ duration: 0.3 }}
                     >
-                      <h3>Éoliennes</h3>
-                      <p>Ces pales géantes tournent même par vent très faible grâce à leur profil unique.</p>
+                      <h3>{selectedRightPair.innovation.title}</h3>
+                      <p>{selectedRightPair.innovation.shortDescription}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -217,7 +241,7 @@ function App() {
 
               {/* Succès : Le lien biomimétique */}
               <AnimatePresence>
-                {linkStatus === 'linked' && (
+                {linkStatus === 'linked' && linkedPair && (
                   <motion.div
                     className="explanation-text"
                     initial={{ opacity: 0, y: 10 }}
@@ -225,8 +249,8 @@ function App() {
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
                   >
-                    <h2>Le lien biomimétique</h2>
-                    <p>Les bosses sur les nageoires de la baleine créent des micro-vortex qui améliorent sa portance. Sculptées de la même façon, ces pales d'éoliennes captent le vent avec beaucoup moins de frottement.</p>
+                    <h2>{linkedPair.explanation.title}</h2>
+                    <p>{linkedPair.explanation.body}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -250,7 +274,20 @@ function App() {
               {/* Bouton contextuel */}
               <div className="center-action">
                 <AnimatePresence mode="wait">
-                  {linkStatus === 'idle' && !wrongAttempt && selectedLeft !== null && selectedRight !== null && (
+                  {allFound && linkStatus === 'idle' && (
+                    <motion.button
+                      key="sequence-suivante"
+                      className="btn-lier"
+                      onClick={() => setCurrentView('sequence-2')}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                    >
+                      Séquence suivante
+                    </motion.button>
+                  )}
+                  {!allFound && linkStatus === 'idle' && !wrongAttempt && selectedLeft !== null && selectedRight !== null && (
                     <motion.button
                       key="lier"
                       className="btn-lier"
@@ -276,7 +313,7 @@ function App() {
                       Suivant
                     </motion.button>
                   )}
-                  {linkStatus === 'idle' && wrongAttempt && (
+                  {!allFound && linkStatus === 'idle' && wrongAttempt && (
                     <motion.button
                       key="reessayer"
                       className="btn-lier"
