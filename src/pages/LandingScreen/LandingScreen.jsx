@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import styles from "./LandingScreen.module.css";
@@ -74,7 +75,7 @@ function LandingScreen({ onStart }) {
             <div className={styles.maskWrapper}>
                 <div className={styles.cardsLayer}>
                     {CARDS.map(([left, top, width, height, , opacity], i) => (
-                        <img
+                        <motion.img
                             key={i}
                             src={CARD_IMAGES[i % CARD_IMAGES.length]}
                             alt=""
@@ -85,7 +86,13 @@ function LandingScreen({ onStart }) {
                                 top: `${top}px`,
                                 width: `${width}px`,
                                 height: `${height}px`,
-                                opacity: opacity !== undefined ? opacity : 1,
+                            }}
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{ opacity: opacity ?? 1, scale: 1 }}
+                            transition={{
+                                delay: i * 0.1,
+                                duration: 0.95,
+                                ease: "easeOut",
                             }}
                         />
                     ))}
@@ -93,8 +100,9 @@ function LandingScreen({ onStart }) {
             </div>
 
             <div className={styles.content}>
-                <Logo />
-                <h1 className={styles.title}>Titre du jeu un peu long</h1>
+                {/* <Logo /> */}
+                <img src="/assets/images/STK-logo.svg" alt="STK" className={styles.logo} />
+                <h1>Titre que Noé va trouver</h1>
                 <p className={styles.subtitle}>
                     Apprenez en plus sur le biomimétisme avec
                     <br />
