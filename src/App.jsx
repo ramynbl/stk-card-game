@@ -17,6 +17,16 @@ function App() {
   const [started, setStarted] = useState(false);
   const [seqIndex, setSeqIndex] = useState(0);
   const [appView, setAppView] = useState('game');
+  const [selectedLeft, setSelectedLeft]   = useState(null);
+  const [selectedRight, setSelectedRight] = useState(null);
+  const [linkStatus, setLinkStatus]       = useState('idle');
+  const [currentView, setCurrentView]     = useState('sequence-1');
+  const [wrongAttempt, setWrongAttempt]   = useState(false);
+  const [matchedPairIds, setMatchedPairIds] = useState([]);
+  const [hintLeftOpen, setHintLeftOpen]   = useState(false);
+  const [hintRightOpen, setHintRightOpen] = useState(false);
+  const [shuffledInspiration] = useState(() => shuffleArray(ROUND_PAIRS));
+  const [shuffledInnovation]  = useState(() => shuffleArray(ROUND_PAIRS));
 
   useEffect(() => {
     soundManager.init();
