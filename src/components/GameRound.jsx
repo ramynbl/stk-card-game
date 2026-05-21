@@ -145,6 +145,14 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
         key={`left-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectLeft(pair.id)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleSelectLeft(pair.id);
+          }
+        }}
       >
         <img src={pair.inspiration.image} alt={pair.inspiration.alt} className="grid-img" />
       </div>
@@ -159,6 +167,14 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
         key={`right-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectRight(pair.id)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleSelectRight(pair.id);
+          }
+        }}
       >
         <img src={pair.innovation.image} alt={pair.innovation.alt} className="grid-img" />
       </div>
