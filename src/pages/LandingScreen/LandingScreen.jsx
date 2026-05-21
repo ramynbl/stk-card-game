@@ -105,7 +105,7 @@ function LandingScreen({ onStart }) {
                 <p className={styles.subtitle}>
                     Apprenez en plus sur le biomimétisme avec
                     <br />
-                    une expériencel udique wow torp bien
+                    une expérience ludique wow trop bien
                 </p>
                 <div className={styles.cta}>
                     <Button onClick={onStart}>Commencer l'exploration</Button>
