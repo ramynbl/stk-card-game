@@ -1,10 +1,11 @@
-import './App.css'
+import { GameProvider } from './context/GameContext'
+import GameScreen from './pages/GameScreen'
 
 function App() {
   return (
-    <div className="container">
-      <h1>STK card game</h1>
-    </div>
+    <GameProvider>
+      <GameScreen />
+    </GameProvider>
   )
 }
 

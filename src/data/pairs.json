@@ -1,0 +1,520 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "totalPairs": 22,
+    "sequences": [
+      { "id": 1, "name": "Séquence 1", "pairIds": [1, 2, 3, 4, 5, 6] },
+      { "id": 2, "name": "Séquence 2", "pairIds": [7, 8, 9, 10, 11, 12] },
+      { "id": 3, "name": "Séquence 3", "pairIds": [13, 14, 15, 16, 17] },
+      { "id": 4, "name": "Séquence 4", "pairIds": [18, 19, 20, 21, 22] }
+    ]
+  },
+  "pairs": [
+    {
+      "id": 1,
+      "theme": "Aérodynamisme",
+      "inspiration": {
+        "title": "Nageoires de baleine",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Sa morphologie brise la résistance du courant pour glisser avec un effort minimal.",
+        "alt": "Baleine à bosse nageant dans l'océan"
+      },
+      "innovation": {
+        "title": "Éoliennes",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Ces pales géantes tournent même par vent très faible grâce à leur profil unique.",
+        "alt": "Pales d'éolienne avec cannelures imitant la baleine"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les bosses sur les nageoires de la baleine créent des micro-vortex qui améliorent sa portance. Sculptées de la même façon, ces pales d'éoliennes captent le vent avec beaucoup moins de frottement.",
+        "source": "Whalepower (Canada)"
+      }
+    },
+    {
+      "id": 2,
+      "theme": "Surfaces",
+      "inspiration": {
+        "title": "Feuille de lotus",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "L'eau perle sur sa surface et emporte la poussière sans jamais la mouiller.",
+        "alt": "Goutte d'eau sur une feuille de lotus"
+      },
+      "innovation": {
+        "title": "Surface hydrofuge",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des façades et tissus qui restent propres et secs grâce à un revêtement nanostructuré.",
+        "alt": "Tissu hydrofuge repoussant l'eau"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La micro-rugosité de la feuille de lotus empêche l'eau d'adhérer. Reproduit en laboratoire, cet effet permet de créer des peintures et textiles autonettoyants.",
+        "source": "Effet Lotus (Université de Bonn)"
+      }
+    },
+    {
+      "id": 3,
+      "theme": "Adhésion",
+      "inspiration": {
+        "title": "Pattes de gecko",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Le gecko grimpe au plafond sans colle, juste avec des millions de poils microscopiques.",
+        "alt": "Gecko accroché à une vitre"
+      },
+      "innovation": {
+        "title": "Adhésif sec",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un ruban réutilisable qui colle sans laisser de traces ni de résidu chimique.",
+        "alt": "Adhésif sec inspiré du gecko"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les soies des pattes du gecko créent des forces de Van der Waals. Reproduites en polymère, elles permettent d'adhérer à toute surface lisse sans glu.",
+        "source": "Gecko Tape (UC Berkeley)"
+      }
+    },
+    {
+      "id": 4,
+      "theme": "Lumière",
+      "inspiration": {
+        "title": "Ailes de papillon",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Leurs couleurs viennent de structures microscopiques qui piègent la lumière.",
+        "alt": "Aile de papillon Morpho bleu"
+      },
+      "innovation": {
+        "title": "Cellules solaires",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des panneaux qui captent davantage de lumière grâce à des nanostructures inspirées du Morpho.",
+        "alt": "Panneau solaire nouvelle génération"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les écailles du Morpho diffractent la lumière pour produire un bleu intense sans pigment. Cette ingénierie photonique inspire des cellules solaires plus efficaces.",
+        "source": "Photonic crystals research"
+      }
+    },
+    {
+      "id": 5,
+      "theme": "Hydrodynamique",
+      "inspiration": {
+        "title": "Peau de requin",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Couverte de petites écailles qui réduisent les turbulences dans l'eau.",
+        "alt": "Détail de la peau d'un requin"
+      },
+      "innovation": {
+        "title": "Combinaisons natation",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un tissu qui glisse mieux dans l'eau et bat des records olympiques.",
+        "alt": "Combinaison de natation haute performance"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les denticules du requin guident le flux d'eau et réduisent la traînée. Imités sur un textile, ils gagnent jusqu'à 4 % de vitesse en nage.",
+        "source": "Speedo Fastskin"
+      }
+    },
+    {
+      "id": 6,
+      "theme": "Thermorégulation",
+      "inspiration": {
+        "title": "Termitière",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Reste fraîche en plein désert grâce à un réseau de cheminées naturelles.",
+        "alt": "Termitière africaine dans la savane"
+      },
+      "innovation": {
+        "title": "Climatisation passive",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un bâtiment qui se ventile naturellement, sans climatisation électrique.",
+        "alt": "Centre commercial Eastgate à Harare"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les termites bâtissent des conduits d'air qui régulent leur nid à 30 °C constants. Le centre Eastgate à Harare copie ce système et consomme 90 % d'énergie en moins.",
+        "source": "Eastgate Center (Mick Pearce)"
+      }
+    },
+    {
+      "id": 7,
+      "theme": "Aérodynamisme",
+      "inspiration": {
+        "title": "Bec du martin-pêcheur",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Plonge dans l'eau sans éclaboussure, à pleine vitesse, sans bruit.",
+        "alt": "Martin-pêcheur en train de plonger"
+      },
+      "innovation": {
+        "title": "TGV Shinkansen",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un train à grande vitesse plus silencieux et 15 % plus économe en énergie.",
+        "alt": "Train Shinkansen japonais"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La forme effilée du bec dissipe l'onde de pression. Reprise sur la motrice du Shinkansen, elle a éliminé le claquement sonore en sortie de tunnel.",
+        "source": "JR West / Eiji Nakatsu"
+      }
+    },
+    {
+      "id": 8,
+      "theme": "Fixation",
+      "inspiration": {
+        "title": "Bardane",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Cette plante s'accroche aux poils des animaux par de minuscules crochets.",
+        "alt": "Fruit de bardane couvert de crochets"
+      },
+      "innovation": {
+        "title": "Velcro",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Une fermeture rapide qui agrippe et se détache à volonté.",
+        "alt": "Bande Velcro agrippante"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "George de Mestral a observé en 1941 les crochets de la bardane sur son chien. Il en a tiré le Velcro, un système d'attache copié à l'identique.",
+        "source": "George de Mestral, 1955"
+      }
+    },
+    {
+      "id": 9,
+      "theme": "Structure",
+      "inspiration": {
+        "title": "Os humain",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Sa structure poreuse en treillis offre une résistance énorme pour un poids faible.",
+        "alt": "Coupe d'un os humain au microscope"
+      },
+      "innovation": {
+        "title": "Tour Eiffel",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Une charpente métallique légère et puissante, inspirée de la trame osseuse.",
+        "alt": "La Tour Eiffel à Paris"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "L'ingénieur Gustave Eiffel s'est inspiré des travaux du Dr Culmann sur la tête du fémur pour concevoir une structure en treillis répartissant les charges.",
+        "source": "Gustave Eiffel, 1889"
+      }
+    },
+    {
+      "id": 10,
+      "theme": "Matériaux",
+      "inspiration": {
+        "title": "Toile d'araignée",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Plus solide que l'acier, plus élastique que le nylon, et entièrement biodégradable.",
+        "alt": "Toile d'araignée couverte de rosée"
+      },
+      "innovation": {
+        "title": "Câbles haute résistance",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des fibres synthétiques aussi solides que l'acier, mais beaucoup plus légères.",
+        "alt": "Câbles en fibre synthétique"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les protéines de la soie d'araignée produisent un fil ultra-résistant. Reproduit en laboratoire, il sert à des câbles, des filets et même des gilets pare-balles.",
+        "source": "Bolt Threads / Spiber"
+      }
+    },
+    {
+      "id": 11,
+      "theme": "Optique",
+      "inspiration": {
+        "title": "Œil de mouche",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Composé de milliers de facettes, il offre une vision panoramique instantanée.",
+        "alt": "Œil composé d'une mouche en gros plan"
+      },
+      "innovation": {
+        "title": "Caméras grand-angle",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des objectifs ultra-fins qui capturent une scène à 180° sans déformation.",
+        "alt": "Objectif de caméra grand-angle"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les ommatidies de l'œil composé permettent une vision large sans lentille épaisse. Imitées en micro-optique, elles équipent les drones et endoscopes.",
+        "source": "CurvACE Project"
+      }
+    },
+    {
+      "id": 12,
+      "theme": "Matériaux",
+      "inspiration": {
+        "title": "Cocon de soie",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Le ver à soie tisse une fibre fine, lisse et incroyablement résistante.",
+        "alt": "Cocon de ver à soie"
+      },
+      "innovation": {
+        "title": "Matériaux composites",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des composites légers utilisés dans l'aéronautique et le sport de haut niveau.",
+        "alt": "Plaque de matériau composite"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La soie naturelle combine légèreté, souplesse et résistance. Sa structure protéique inspire les composites textiles utilisés en aéronautique.",
+        "source": "Tufts University Silk Lab"
+      }
+    },
+    {
+      "id": 13,
+      "theme": "Structure",
+      "inspiration": {
+        "title": "Nautile",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Sa coquille en spirale logarithmique grandit sans jamais perdre sa forme.",
+        "alt": "Coupe d'une coquille de nautile"
+      },
+      "innovation": {
+        "title": "Architecture en spirale",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des bâtiments qui s'enroulent pour optimiser lumière, ventilation et circulation.",
+        "alt": "Bâtiment en spirale"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La spirale de Fibonacci du nautile distribue la matière de façon optimale. Reprise en architecture, elle guide la lumière naturelle au cœur des bâtiments.",
+        "source": "Spiral architecture studies"
+      }
+    },
+    {
+      "id": 14,
+      "theme": "Matériaux",
+      "inspiration": {
+        "title": "Coquille d'ormeau",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Faite de briques minérales encollées : 3000 fois plus résistante que ses composants.",
+        "alt": "Intérieur d'une coquille d'ormeau"
+      },
+      "innovation": {
+        "title": "Céramique ultra-résistante",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des céramiques tenaces utilisées en aéronautique et en chirurgie osseuse.",
+        "alt": "Plaque de céramique technique"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La nacre de l'ormeau alterne des couches dures et souples qui stoppent la propagation des fissures. Cette architecture inspire des céramiques ultra-tenaces.",
+        "source": "Nacre-mimetic ceramics"
+      }
+    },
+    {
+      "id": 15,
+      "theme": "Acoustique",
+      "inspiration": {
+        "title": "Plume de hibou",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Permet au hibou de voler en silence absolu pour surprendre ses proies.",
+        "alt": "Plume de hibou en gros plan"
+      },
+      "innovation": {
+        "title": "Pales silencieuses",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des pales d'éoliennes et de ventilateurs qui réduisent fortement le bruit.",
+        "alt": "Pale silencieuse à bord dentelé"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les barbes dentelées des plumes de hibou cassent les turbulences sonores. Ce dessin équipe désormais les pales d'éoliennes pour les rendre quasi inaudibles.",
+        "source": "Quiet wind turbine blades"
+      }
+    },
+    {
+      "id": 16,
+      "theme": "Hydrologie",
+      "inspiration": {
+        "title": "Cactus",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Capte l'humidité du brouillard sur ses épines pour survivre au désert.",
+        "alt": "Cactus dans le désert au lever du soleil"
+      },
+      "innovation": {
+        "title": "Récolte de brume",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des filets qui transforment le brouillard en eau potable pour les villages isolés.",
+        "alt": "Filet à brouillard installé en montagne"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les épines coniques du cactus dirigent les gouttes vers le tronc par capillarité. Le principe est repris dans des filets capteurs de brume pour zones arides.",
+        "source": "FogQuest / Atrapaniebla"
+      }
+    },
+    {
+      "id": 17,
+      "theme": "Protection",
+      "inspiration": {
+        "title": "Crâne de pic-bois",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Encaisse 1000 chocs par jour sans subir le moindre traumatisme cérébral.",
+        "alt": "Pic-bois frappant un tronc"
+      },
+      "innovation": {
+        "title": "Casques anti-chocs",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des casques de protection qui absorbent les impacts mieux que la mousse classique.",
+        "alt": "Casque de sport haute performance"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Le crâne du pic-bois combine os spongieux et os mou pour amortir les chocs. Cette structure inspire des matériaux d'amortissement pour casques et boîtes noires.",
+        "source": "Woodpecker-inspired shock absorbers"
+      }
+    },
+    {
+      "id": 18,
+      "theme": "Mobilité",
+      "inspiration": {
+        "title": "Pied de chameau",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Large et souple, il s'étale sur le sable sans s'y enfoncer.",
+        "alt": "Pied de chameau dans le sable"
+      },
+      "innovation": {
+        "title": "Pneus dunaires",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des pneus à très basse pression qui flottent sur le sable mou.",
+        "alt": "Pneu basse pression sur dune"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Le coussinet du chameau répartit le poids sur une large surface. Le même principe gonfle les pneus tout-terrain pour rouler dans le désert sans s'embourber.",
+        "source": "Off-road tire engineering"
+      }
+    },
+    {
+      "id": 19,
+      "theme": "Robotique",
+      "inspiration": {
+        "title": "Trompe d'éléphant",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Souple et précise, elle attrape une cacahuète ou soulève un tronc de 200 kg.",
+        "alt": "Trompe d'éléphant tendue"
+      },
+      "innovation": {
+        "title": "Bras robotique",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un bras industriel à la fois doux et puissant, qui travaille en sécurité avec l'humain.",
+        "alt": "Bras robotique pneumatique"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La trompe associe muscles longitudinaux et circulaires sans os. Reproduite en actionneurs pneumatiques, elle donne un bras robotique souple et collaboratif.",
+        "source": "Festo Bionic Handling Assistant"
+      }
+    },
+    {
+      "id": 20,
+      "theme": "Vol",
+      "inspiration": {
+        "title": "Aile de libellule",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Légère, nervurée, capable de voler à reculons et de faire du sur-place.",
+        "alt": "Aile de libellule transparente"
+      },
+      "innovation": {
+        "title": "Drones MAV",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Des micro-drones ultra-agiles qui volent comme des insectes.",
+        "alt": "Micro-drone à quatre ailes"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les nervures de l'aile de libellule la rigidifient sans l'alourdir. Imitées sur des micro-drones, elles permettent des manœuvres impossibles aux voilures classiques.",
+        "source": "Bionic Flying Insect (TU Delft)"
+      }
+    },
+    {
+      "id": 21,
+      "theme": "Optique",
+      "inspiration": {
+        "title": "Diatomée",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Cette micro-algue construit une coque de verre ciselée à l'échelle nanométrique.",
+        "alt": "Diatomée vue au microscope"
+      },
+      "innovation": {
+        "title": "Verre nanostructuré",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Du verre qui filtre la lumière, capte l'énergie et reste auto-nettoyant.",
+        "alt": "Verre nanostructuré à reflets irisés"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "La coque silicée des diatomées contient des motifs ordonnés à l'échelle du nanomètre. On s'en inspire pour fabriquer des verres optiques et photovoltaïques.",
+        "source": "Diatom-inspired photonics"
+      }
+    },
+    {
+      "id": 22,
+      "theme": "Construction",
+      "inspiration": {
+        "title": "Récif corallien",
+        "subtitle": "Inspiration",
+        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "shortDescription": "Les coraux bâtissent des récifs immenses en absorbant le CO₂ de l'océan.",
+        "alt": "Récif corallien sous l'eau"
+      },
+      "innovation": {
+        "title": "Béton biologique",
+        "subtitle": "Innovation",
+        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "shortDescription": "Un béton fabriqué par des bactéries, qui piège le CO₂ au lieu d'en émettre.",
+        "alt": "Bloc de béton biologique"
+      },
+      "explanation": {
+        "title": "Le lien biomimétique",
+        "body": "Les coraux fixent le carbone marin pour bâtir leur squelette. Des bétons « vivants » reproduisent ce procédé pour fabriquer un matériau qui capte le CO₂.",
+        "source": "BioMason / Calera"
+      }
+    }
+  ]
+}
