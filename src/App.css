@@ -54,14 +54,34 @@
   background-color: #d1d6ce; /* Gris clair */
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
   box-sizing: border-box;
-  /* Un bord invisible par défaut pour ne pas décaler au survol */
-  border: 3px solid transparent; 
+  border: 3px solid transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+.grid-square:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.25s ease;
+  transform-origin: center center;
+}
+
+.grid-square:hover .grid-img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
 }
 
 .grid-square.dark {
-  background-color: #989d98; /* Gris foncé pour les deux du haut */
+  background-color: #989d98;
 }
 
 /* Effet Hover / Selected (Contour vert) */
@@ -98,8 +118,14 @@
   background-color: #6398c8; /* Bleu pour la carte de droite */
 }
 
-.img-placeholder {
-  flex: 1;
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .card-text {
@@ -109,6 +135,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1;
   /* Le gradient est ajouté en dessous pour fondre le texte avec l'image */
 }
 

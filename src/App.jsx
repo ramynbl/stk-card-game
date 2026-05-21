@@ -15,7 +15,9 @@ function App() {
           key={`left-${i}`}
           className={`grid-square ${isDark ? 'dark' : ''} ${isSelected ? 'selected' : ''}`}
           onClick={() => setSelectedLeft(i)}
-        />
+        >
+          <img src="/assets/cards/inspiration/card-inspiration-01.png" alt="Inspiration" className="grid-img" />
+        </div>
       );
     });
   };
@@ -30,7 +32,9 @@ function App() {
           key={`right-${i}`}
           className={`grid-square ${isDark ? 'dark' : ''} ${isSelected ? 'selected' : ''}`}
           onClick={() => setSelectedRight(i)}
-        />
+        >
+          <img src="/assets/cards/innovation/card-innovation-01.png" alt="Innovation" className="grid-img" />
+        </div>
       );
     });
   };
@@ -57,8 +61,8 @@ function App() {
         {/* Carte et Description de gauche */}
         <div className="card-wrapper">
           <div className="card placeholder-card-left">
-            {/* Espace réservé pour l'image de la baleine */}
-            <div className="img-placeholder whale"></div>
+            {/* Image de la baleine */}
+            <img src="/assets/cards/inspiration/card-inspiration-01.png" alt="Nageoires de baleine" className="card-img" />
             <div className="card-text">
               <h2>Nageoires<br/>de baleine</h2>
               <p>Inspiration</p>
@@ -79,8 +83,8 @@ function App() {
         {/* Carte et Description de droite */}
         <div className="card-wrapper">
           <div className="card placeholder-card-right">
-            {/* Espace réservé pour l'image de l'éolienne */}
-            <div className="img-placeholder turbine"></div>
+            {/* Image de l'éolienne */}
+            <img src="/assets/cards/innovation/card-innovation-01.png" alt="Éoliennes" className="card-img" />
             <div className="card-text">
               <h2>Éoliennes</h2>
               <p>Innovation</p>
