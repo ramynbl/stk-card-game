@@ -35,10 +35,18 @@
 .main-content {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.cards-row {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 36px;
-  padding-top: 20px;
+  width: 100%;
 }
 
 /* Grilles */
@@ -51,21 +59,45 @@
 }
 
 .grid-square {
-  background-color: #d1d6ce; /* Gris clair */
+  background-color: transparent;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
   box-sizing: border-box;
-  /* Un bord invisible par défaut pour ne pas décaler au survol */
-  border: 3px solid transparent; 
+  border: 3px solid transparent;
+  overflow: hidden;
+  position: relative;
 }
 
-.grid-square.dark {
-  background-color: #989d98; /* Gris foncé pour les deux du haut */
+.grid-square:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Effet Hover / Selected (Contour vert) */
-.grid-square:hover,
+.grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.25s ease;
+  transform-origin: center center;
+}
+
+.grid-square:hover .grid-img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+
+
+/* Grilles désactivées pendant et après l'animation Lier */
+.grid-square.locked {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Effet Selected (Contour vert) */
 .grid-square.selected {
   border: 3px solid #6c806d; /* Vert foncé */
 }
@@ -76,6 +108,17 @@
   flex-direction: column;
   align-items: center;
   width: 340px;
+  position: relative;
+  will-change: transform;
+}
+
+/* La carte gauche passe au-dessus quand les cartes se rapprochent (pour overlap propre) */
+.card-wrapper-left {
+  z-index: 2;
+}
+
+.card-wrapper-right {
+  z-index: 1;
 }
 
 .card {
@@ -98,8 +141,14 @@
   background-color: #6398c8; /* Bleu pour la carte de droite */
 }
 
-.img-placeholder {
-  flex: 1;
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .card-text {
@@ -109,6 +158,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1;
   /* Le gradient est ajouté en dessous pour fondre le texte avec l'image */
 }
 
@@ -158,13 +208,42 @@
   color: #333333;
 }
 
+/* Explication du lien biomimétique */
+.bottom-action-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  min-height: 200px;
+  width: 100%;
+}
+
+.explanation-text {
+  text-align: center;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.explanation-text h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.explanation-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333333;
+}
+
 /* Bouton Central */
 .center-action {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 480px; /* Positionnement au niveau des descriptions */
   padding: 0 20px;
+  min-width: 90px;
 }
 
 .btn-lier {
