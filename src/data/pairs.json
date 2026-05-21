@@ -1,12 +1,11 @@
 {
   "metadata": {
     "version": "1.0.0",
-    "totalPairs": 22,
+    "totalPairs": 21,
     "sequences": [
-      { "id": 1, "name": "Séquence 1", "pairIds": [1, 2, 3, 4, 5, 6] },
-      { "id": 2, "name": "Séquence 2", "pairIds": [7, 8, 9, 10, 11, 12] },
-      { "id": 3, "name": "Séquence 3", "pairIds": [13, 14, 15, 16, 17] },
-      { "id": 4, "name": "Séquence 4", "pairIds": [18, 19, 20, 21, 22] }
+      { "id": 1, "name": "Séquence 1", "pairIds": [1, 2, 3, 4, 5, 6, 7, 8] },
+      { "id": 2, "name": "Séquence 2", "pairIds": [9, 10, 11, 12, 13, 14, 15, 16] },
+      { "id": 3, "name": "Séquence 3", "pairIds": [17, 18, 19, 20, 21] }
     ]
   },
   "pairs": [
@@ -200,14 +199,14 @@
       "inspiration": {
         "title": "Os humain",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-09.webp",
         "shortDescription": "Sa structure poreuse en treillis offre une résistance énorme pour un poids faible.",
         "alt": "Coupe d'un os humain au microscope"
       },
       "innovation": {
         "title": "Tour Eiffel",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-09.webp",
         "shortDescription": "Une charpente métallique légère et puissante, inspirée de la trame osseuse.",
         "alt": "La Tour Eiffel à Paris"
       },
@@ -223,14 +222,14 @@
       "inspiration": {
         "title": "Toile d'araignée",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-10.webp",
         "shortDescription": "Plus solide que l'acier, plus élastique que le nylon, et entièrement biodégradable.",
         "alt": "Toile d'araignée couverte de rosée"
       },
       "innovation": {
         "title": "Câbles haute résistance",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-10.webp",
         "shortDescription": "Des fibres synthétiques aussi solides que l'acier, mais beaucoup plus légères.",
         "alt": "Câbles en fibre synthétique"
       },
@@ -246,14 +245,14 @@
       "inspiration": {
         "title": "Œil de mouche",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-11.webp",
         "shortDescription": "Composé de milliers de facettes, il offre une vision panoramique instantanée.",
         "alt": "Œil composé d'une mouche en gros plan"
       },
       "innovation": {
         "title": "Caméras grand-angle",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-11.webp",
         "shortDescription": "Des objectifs ultra-fins qui capturent une scène à 180° sans déformation.",
         "alt": "Objectif de caméra grand-angle"
       },
@@ -269,14 +268,14 @@
       "inspiration": {
         "title": "Cocon de soie",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-12.webp",
         "shortDescription": "Le ver à soie tisse une fibre fine, lisse et incroyablement résistante.",
         "alt": "Cocon de ver à soie"
       },
       "innovation": {
         "title": "Matériaux composites",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-12.webp",
         "shortDescription": "Des composites légers utilisés dans l'aéronautique et le sport de haut niveau.",
         "alt": "Plaque de matériau composite"
       },
@@ -292,14 +291,14 @@
       "inspiration": {
         "title": "Nautile",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-13.webp",
         "shortDescription": "Sa coquille en spirale logarithmique grandit sans jamais perdre sa forme.",
         "alt": "Coupe d'une coquille de nautile"
       },
       "innovation": {
         "title": "Architecture en spirale",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-13.webp",
         "shortDescription": "Des bâtiments qui s'enroulent pour optimiser lumière, ventilation et circulation.",
         "alt": "Bâtiment en spirale"
       },
@@ -315,14 +314,14 @@
       "inspiration": {
         "title": "Coquille d'ormeau",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-14.webp",
         "shortDescription": "Faite de briques minérales encollées : 3000 fois plus résistante que ses composants.",
         "alt": "Intérieur d'une coquille d'ormeau"
       },
       "innovation": {
         "title": "Céramique ultra-résistante",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-14.webp",
         "shortDescription": "Des céramiques tenaces utilisées en aéronautique et en chirurgie osseuse.",
         "alt": "Plaque de céramique technique"
       },
@@ -338,14 +337,14 @@
       "inspiration": {
         "title": "Plume de hibou",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-15.webp",
         "shortDescription": "Permet au hibou de voler en silence absolu pour surprendre ses proies.",
         "alt": "Plume de hibou en gros plan"
       },
       "innovation": {
         "title": "Pales silencieuses",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-15.webp",
         "shortDescription": "Des pales d'éoliennes et de ventilateurs qui réduisent fortement le bruit.",
         "alt": "Pale silencieuse à bord dentelé"
       },
@@ -361,14 +360,14 @@
       "inspiration": {
         "title": "Cactus",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-16.webp",
         "shortDescription": "Capte l'humidité du brouillard sur ses épines pour survivre au désert.",
         "alt": "Cactus dans le désert au lever du soleil"
       },
       "innovation": {
         "title": "Récolte de brume",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-16.webp",
         "shortDescription": "Des filets qui transforment le brouillard en eau potable pour les villages isolés.",
         "alt": "Filet à brouillard installé en montagne"
       },
@@ -384,14 +383,14 @@
       "inspiration": {
         "title": "Crâne de pic-bois",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-17.webp",
         "shortDescription": "Encaisse 1000 chocs par jour sans subir le moindre traumatisme cérébral.",
         "alt": "Pic-bois frappant un tronc"
       },
       "innovation": {
         "title": "Casques anti-chocs",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-17.webp",
         "shortDescription": "Des casques de protection qui absorbent les impacts mieux que la mousse classique.",
         "alt": "Casque de sport haute performance"
       },
@@ -407,14 +406,14 @@
       "inspiration": {
         "title": "Pied de chameau",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-18.webp",
         "shortDescription": "Large et souple, il s'étale sur le sable sans s'y enfoncer.",
         "alt": "Pied de chameau dans le sable"
       },
       "innovation": {
         "title": "Pneus dunaires",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-18.webp",
         "shortDescription": "Des pneus à très basse pression qui flottent sur le sable mou.",
         "alt": "Pneu basse pression sur dune"
       },
@@ -430,14 +429,14 @@
       "inspiration": {
         "title": "Trompe d'éléphant",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-19.webp",
         "shortDescription": "Souple et précise, elle attrape une cacahuète ou soulève un tronc de 200 kg.",
         "alt": "Trompe d'éléphant tendue"
       },
       "innovation": {
         "title": "Bras robotique",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-19.webp",
         "shortDescription": "Un bras industriel à la fois doux et puissant, qui travaille en sécurité avec l'humain.",
         "alt": "Bras robotique pneumatique"
       },
@@ -453,14 +452,14 @@
       "inspiration": {
         "title": "Aile de libellule",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-20.webp",
         "shortDescription": "Légère, nervurée, capable de voler à reculons et de faire du sur-place.",
         "alt": "Aile de libellule transparente"
       },
       "innovation": {
         "title": "Drones MAV",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-20.webp",
         "shortDescription": "Des micro-drones ultra-agiles qui volent comme des insectes.",
         "alt": "Micro-drone à quatre ailes"
       },
@@ -476,14 +475,14 @@
       "inspiration": {
         "title": "Diatomée",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-21.webp",
         "shortDescription": "Cette micro-algue construit une coque de verre ciselée à l'échelle nanométrique.",
         "alt": "Diatomée vue au microscope"
       },
       "innovation": {
         "title": "Verre nanostructuré",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-21.webp",
         "shortDescription": "Du verre qui filtre la lumière, capte l'énergie et reste auto-nettoyant.",
         "alt": "Verre nanostructuré à reflets irisés"
       },
@@ -491,29 +490,6 @@
         "title": "Le lien biomimétique",
         "body": "La coque silicée des diatomées contient des motifs ordonnés à l'échelle du nanomètre. On s'en inspire pour fabriquer des verres optiques et photovoltaïques.",
         "source": "Diatom-inspired photonics"
-      }
-    },
-    {
-      "id": 22,
-      "theme": "Construction",
-      "inspiration": {
-        "title": "Récif corallien",
-        "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
-        "shortDescription": "Les coraux bâtissent des récifs immenses en absorbant le CO₂ de l'océan.",
-        "alt": "Récif corallien sous l'eau"
-      },
-      "innovation": {
-        "title": "Béton biologique",
-        "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
-        "shortDescription": "Un béton fabriqué par des bactéries, qui piège le CO₂ au lieu d'en émettre.",
-        "alt": "Bloc de béton biologique"
-      },
-      "explanation": {
-        "title": "Le lien biomimétique",
-        "body": "Les coraux fixent le carbone marin pour bâtir leur squelette. Des bétons « vivants » reproduisent ce procédé pour fabriquer un matériau qui capte le CO₂.",
-        "source": "BioMason / Calera"
       }
     }
   ]

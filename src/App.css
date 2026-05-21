@@ -383,6 +383,14 @@
   color: #f4efeb;
 }
 
+/* Wrapper de séquence de jeu */
+.game-round {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+}
+
 /* Transition View */
 .transition-view {
   flex: 1;
