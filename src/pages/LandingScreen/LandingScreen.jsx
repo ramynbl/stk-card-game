@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Button from "../../components/Button";
+import { soundManager } from "../../utils/soundManager";
 import styles from "./LandingScreen.module.css";
 function shuffle(arr) {
     const a = [...arr];
@@ -115,7 +116,12 @@ function LandingScreen({ onStart }) {
                     une expérience ludique wow trop bien
                 </p>
                 <div className={styles.cta}>
-                    <Button onClick={onStart}>Commencer l'exploration</Button>
+                    <Button onClick={() => {
+                        soundManager.play('gameStart');
+                        onStart();
+                    }}>
+                        Commencer l'exploration
+                    </Button>
                 </div>
             </div>
         </div>

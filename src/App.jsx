@@ -1,4 +1,5 @@
 import '@fontsource/playfair-display';
+import '@fontsource/dm-serif-display';
 import './index.css';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -17,14 +18,6 @@ function App() {
   const [started, setStarted] = useState(false);
   const [seqIndex, setSeqIndex] = useState(0);
   const [appView, setAppView] = useState('game');
-  const [selectedLeft, setSelectedLeft]   = useState(null);
-  const [selectedRight, setSelectedRight] = useState(null);
-  const [linkStatus, setLinkStatus]       = useState('idle');
-  const [currentView, setCurrentView]     = useState('sequence-1');
-  const [wrongAttempt, setWrongAttempt]   = useState(false);
-  const [matchedPairIds, setMatchedPairIds] = useState([]);
-  const [hintLeftOpen, setHintLeftOpen]   = useState(false);
-  const [hintRightOpen, setHintRightOpen] = useState(false);
 
   useEffect(() => {
     soundManager.init();
@@ -76,9 +69,9 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="transition-title">
-              S<span style={{ fontStyle: 'italic' }}>é</span>quence {seqIndex + 2}
-              <span style={{ fontFamily: 'Geist Sans, sans-serif', fontWeight: 300, fontSize: '0.9em' }}>
-                /{TOTAL_SEQUENCES}
+              S<span style={{ fontStyle: 'italic' }}>é</span>quence{' '}
+              <span style={{ fontFamily: '"DM Serif Display", serif', fontWeight: 400 }}>
+                {seqIndex + 2}/{TOTAL_SEQUENCES}
               </span>
             </h2>
             <button
