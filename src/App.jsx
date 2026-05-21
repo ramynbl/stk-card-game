@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import LandingScreen from './pages/LandingScreen/LandingScreen';
 
-const LINK_OFFSET = 18;
+const LINK_OFFSET = 56;
 
 // --- Variants ---
 
