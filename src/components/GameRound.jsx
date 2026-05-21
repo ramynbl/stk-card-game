@@ -108,7 +108,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   const handleSuivant = () => {
     soundManager.play('button');
-    setMatchedPairIds(prev => [...prev, selectedLeft]);
+    setMatchedPairIds(prev => (prev.includes(selectedLeft) ? prev : [...prev, selectedLeft]));
     setLinkStatus('idle');
     setWrongAttempt(false);
     setHintLeftOpen(false);
