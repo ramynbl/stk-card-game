@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import styles from "./LandingScreen.module.css";
-import pairsData from "../../data/pairs.json";
-
-// Liste plate des images issues de pairs.json (inspiration + innovation)
-const CARD_IMAGES = pairsData.pairs.flatMap((pair) => [
-    pair.inspiration.image,
-    pair.innovation.image,
-]);
+// Génère les chemins directement depuis les 21 fichiers disponibles (pairs.json contient des chemins .png incomplets pour les paires 9-22)
+const CARD_IMAGES = Array.from({ length: 21 }, (_, i) => {
+    const n = String(i + 1).padStart(2, "0");
+    return [
+        `/assets/cards/inspiration/card-inspiration-${n}.webp`,
+        `/assets/cards/innovation/card-innovation-${n}.webp`,
+    ];
+}).flat();
 
 // Format : [left, top, width, height, tone, opacity] — ratio 7:10 (images 350×500)
 const W = 63;
