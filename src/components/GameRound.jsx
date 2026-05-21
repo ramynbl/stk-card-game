@@ -145,6 +145,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
         key={`left-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectLeft(pair.id)}
+        aria-label={`Sélectionner l'inspiration ${pair.inspiration.title}`}
         role="button"
         tabIndex={0}
         onKeyDown={(event) => {
@@ -167,6 +168,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
         key={`right-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectRight(pair.id)}
+        aria-label={`Sélectionner l'innovation ${pair.innovation.title}`}
         role="button"
         tabIndex={0}
         onKeyDown={(event) => {

@@ -41,7 +41,7 @@ function App() {
   };
 
   const handleStart = () => {
-    setSeqIndex(i => i + 1);
+    setSeqIndex(i => Math.min(i + 1, TOTAL_SEQUENCES - 1));
     setAppView('game');
   };
 
