@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Button from "../../components/Button";
-import Logo from "../../components/Logo";
 import styles from "./LandingScreen.module.css";
 // Toutes les inspirations d'abord, puis toutes les innovations — les paires sont ainsi séparées de 21 positions
 const CARD_IMAGES = [
@@ -106,7 +105,7 @@ function LandingScreen({ onStart }) {
                 <p className={styles.subtitle}>
                     Apprenez en plus sur le biomimétisme avec
                     <br />
-                    une expériencel udique wow torp bien
+                    une expérience ludique wow trop bien
                 </p>
                 <div className={styles.cta}>
                     <Button onClick={onStart}>Commencer l'exploration</Button>
