@@ -1,9 +1,12 @@
+import '@fontsource/playfair-display';
+import './index.css';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import pairsData from './data/pairs.json';
 import { soundManager } from './utils/soundManager';
 import GameRound from './components/GameRound';
+import LandingScreen from './pages/LandingScreen/LandingScreen';
 
 const SEQUENCES = pairsData.metadata.sequences.map(seq =>
   seq.pairIds.map(id => pairsData.pairs.find(p => p.id === id))
@@ -11,8 +14,9 @@ const SEQUENCES = pairsData.metadata.sequences.map(seq =>
 const TOTAL_SEQUENCES = SEQUENCES.length;
 
 function App() {
+  const [started, setStarted] = useState(false);
   const [seqIndex, setSeqIndex] = useState(0);
-  const [appView, setAppView]   = useState('game');
+  const [appView, setAppView] = useState('game');
 
   useEffect(() => {
     soundManager.init();
@@ -23,6 +27,10 @@ function App() {
       soundManager.play('levelTransition');
     }
   }, [appView]);
+
+  if (!started) {
+    return <LandingScreen onStart={() => setStarted(true)} />;
+  }
 
   const handleSequenceComplete = () => {
     if (seqIndex < TOTAL_SEQUENCES - 1) {
@@ -40,7 +48,6 @@ function App() {
   return (
     <div className="container">
       <AnimatePresence mode="wait">
-
         {appView === 'game' && (
           <GameRound
             key={seqIndex}
@@ -106,7 +113,6 @@ function App() {
             </button>
           </motion.main>
         )}
-
       </AnimatePresence>
     </div>
   );
