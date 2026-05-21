@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
 import Button from "../../components/Button";
 import styles from "./LandingScreen.module.css";
-// Toutes les inspirations d'abord, puis toutes les innovations — les paires sont ainsi séparées de 21 positions
-const CARD_IMAGES = [
-    ...Array.from({ length: 21 }, (_, i) => `/assets/cards/inspiration/card-inspiration-${String(i + 1).padStart(2, "0")}.webp`),
-    ...Array.from({ length: 21 }, (_, i) => `/assets/cards/innovation/card-innovation-${String(i + 1).padStart(2, "0")}.webp`),
-];
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+const _inspirations = shuffle(Array.from({ length: 21 }, (_, i) => `/assets/cards/inspiration/card-inspiration-${String(i + 1).padStart(2, "0")}.webp`));
+const _innovations = shuffle(Array.from({ length: 21 }, (_, i) => `/assets/cards/innovation/card-innovation-${String(i + 1).padStart(2, "0")}.webp`));
+const CARD_IMAGES = _inspirations.flatMap((insp, i) => [insp, _innovations[i]]);
 
 // Format : [left, top, width, height, tone, opacity] — ratio 7:10 (images 350×500)
 const W = 63;

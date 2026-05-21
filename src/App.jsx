@@ -25,8 +25,6 @@ function App() {
   const [matchedPairIds, setMatchedPairIds] = useState([]);
   const [hintLeftOpen, setHintLeftOpen]   = useState(false);
   const [hintRightOpen, setHintRightOpen] = useState(false);
-  const [shuffledInspiration] = useState(() => shuffleArray(ROUND_PAIRS));
-  const [shuffledInnovation]  = useState(() => shuffleArray(ROUND_PAIRS));
 
   useEffect(() => {
     soundManager.init();
