@@ -24,4 +24,6 @@
 
   --transition-fast: 150ms ease-out;
   --transition-default: 250ms ease-out;
+
+  --card-link-offset: 56px;
 }
