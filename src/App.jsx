@@ -3,7 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import LandingScreen from './pages/LandingScreen/LandingScreen';
 
-const LINK_OFFSET = 56;
+const DEFAULT_LINK_OFFSET = 56;
+const cssLinkOffset =
+  typeof window !== 'undefined'
+    ? Number.parseFloat(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue('--card-link-offset')
+          .trim(),
+      )
+    : Number.NaN;
+const LINK_OFFSET = Number.isFinite(cssLinkOffset) ? cssLinkOffset : DEFAULT_LINK_OFFSET;
 
 // --- Variants ---
 
