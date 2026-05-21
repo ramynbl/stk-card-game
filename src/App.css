@@ -263,3 +263,40 @@
   background: #1a1a1a;
   color: #f4efeb;
 }
+
+/* Transition View */
+.transition-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.transition-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.btn-commencer {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 42px;
+  font-size: 18px;
+  font-family: 'Geist Sans', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-commencer:hover {
+  transform: scale(1.05);
+  background-color: #222;
+}

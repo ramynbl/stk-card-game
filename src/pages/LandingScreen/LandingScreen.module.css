@@ -32,7 +32,8 @@
 
 .card {
     position: absolute;
-    border-radius: var(--radius-card);
+    /* border-radius: var(--radius-card); */
+    border-radius: 10px;
     object-fit: cover;
     display: block;
     user-select: none;
