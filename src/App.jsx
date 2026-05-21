@@ -7,6 +7,12 @@ import { soundManager } from './utils/soundManager';
 const ROUND_PAIRS = pairsData.pairs.slice(0, 8);
 const LINK_OFFSET = 18;
 
+// Construit le chemin vers l'image glow en fonction de l'ID de la paire
+function getGlowPath(type, id) {
+  const num = String(id).padStart(2, '0');
+  return `/assets/cards/glow/card-${type}-glow-${num}.webp`;
+}
+
 function shuffleArray(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -238,6 +244,26 @@ function App() {
                       </motion.div>
                     )}
                   </AnimatePresence>
+
+                  {/* Glow effect overlay – Inspiration */}
+                  {selectedLeftPair && (
+                    <motion.img
+                      src={getGlowPath('inspiration', selectedLeftPair.id)}
+                      alt="Glow effect"
+                      className="card-img"
+                      style={{ zIndex: 1 }}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={
+                        linkStatus === 'linked'
+                          ? { opacity: 1, scale: [1, 1.05, 1] }
+                          : { opacity: 0, scale: 1 }
+                      }
+                      transition={{
+                        opacity: { duration: 0.3 },
+                        scale: { duration: 0.6, ease: "easeInOut" }
+                      }}
+                    />
+                  )}
                 </div>
                 <AnimatePresence mode="wait">
                   {canShowHintToggle && selectedLeftPair && (
@@ -307,20 +333,20 @@ function App() {
                     )}
                   </AnimatePresence>
                   
-                  {/* Glow effect test on card 2 */}
-                  {selectedRightPair?.id === 2 && (
+                  {/* Glow effect overlay – Innovation */}
+                  {selectedRightPair && (
                     <motion.img
-                      src="/assets/images/test.png"
+                      src={getGlowPath('innovation', selectedRightPair.id)}
                       alt="Glow effect"
                       className="card-img"
                       style={{ zIndex: 1 }}
                       initial={{ opacity: 0, scale: 1 }}
                       animate={
-                        linkStatus === 'linked' 
-                          ? { opacity: 1, scale: [1, 1.05, 1] } 
+                        linkStatus === 'linked'
+                          ? { opacity: 1, scale: [1, 1.05, 1] }
                           : { opacity: 0, scale: 1 }
                       }
-                      transition={{ 
+                      transition={{
                         opacity: { duration: 0.3 },
                         scale: { duration: 0.6, ease: "easeInOut" }
                       }}
