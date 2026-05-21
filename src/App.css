@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 5vh; /* Pousse le bloc vers le bas de manière statique */
   width: 100%;
 }
 
@@ -66,8 +66,8 @@
 /* Grilles */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 64px);
-  grid-auto-rows: 84px;
+  grid-template-columns: repeat(2, 85px);
+  grid-auto-rows: 120px;
   gap: 12px;
   margin-top: 50px; /* Pour centrer verticalement avec la grande carte */
 }
@@ -112,8 +112,31 @@
 }
 
 .grid-square.matched {
-  opacity: 0.3;
   cursor: default;
+  pointer-events: none;
+  background-color: rgba(108, 128, 109, 0.08);
+}
+
+.grid-square.matched .grid-img {
+  filter: grayscale(100%) brightness(1.05);
+  opacity: 0.45;
+}
+
+.grid-square.matched::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #6c806d;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   pointer-events: none;
 }
 
@@ -130,6 +153,8 @@
   width: 340px;
   position: relative;
   will-change: transform;
+  min-height: 600px; /* Réserve l'espace pour le texte pour éviter le saut */
+  perspective: 1000px;
 }
 
 /* La carte gauche passe au-dessus quand les cartes se rapprochent (pour overlap propre) */
@@ -149,26 +174,61 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
   margin-bottom: 24px;
 }
 
 .placeholder-card-left {
-  background-color: #eae1d6; /* Beige pour la carte de gauche */
+  background-color: #F4EFEB;
 }
 
 .placeholder-card-right {
-  background-color: #6398c8; /* Bleu pour la carte de droite */
+  background-color: #F4EFEB;
 }
 
 .card-img {
-  width: 100%;
-  height: 100%;
+  width: 101%;
+  height: 101%;
   object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -0.5%;
+  left: -0.5%;
   z-index: 0;
+  backface-visibility: hidden;
+}
+
+/* État vide des cartes centrales avant sélection */
+.card-placeholder-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 2px dashed rgba(168, 157, 145, 0.45);
+  border-radius: 10px;
+  animation: placeholder-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes placeholder-pulse {
+  0%, 100% { border-color: rgba(168, 157, 145, 0.25); }
+  50%       { border-color: rgba(108, 128, 109, 0.45); }
+}
+
+.card-placeholder-arrow {
+  font-size: 22px;
+  color: rgba(138, 126, 114, 0.55);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.card-placeholder-text {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(138, 126, 114, 0.65);
+  text-transform: uppercase;
 }
 
 .card-text {
@@ -226,6 +286,45 @@
   line-height: 1.5;
   font-weight: 400;
   color: #333333;
+}
+
+/* Bouton pour afficher/masquer l'indice sous une carte sélectionnée */
+.hint-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 12px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid rgba(108, 128, 109, 0.4);
+  border-radius: 999px;
+  color: #6c806d;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hint-toggle:hover {
+  background-color: rgba(108, 128, 109, 0.1);
+  border-color: #6c806d;
+  color: #4f614f;
+}
+
+.hint-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #6c806d;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 /* Explication du lien biomimétique */
@@ -319,4 +418,78 @@
 .btn-commencer:hover {
   transform: scale(1.05);
   background-color: #222;
+}
+
+/* Optimisation pour les petits écrans (14 pouces, ordinateurs portables) */
+@media (max-height: 950px) {
+  .container {
+    padding: 25px 40px;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .main-content {
+    padding-top: 3vh; /* Espacement fixe pour descendre le bloc sans centrage auto */
+  }
+
+  .card-wrapper {
+    min-height: 520px; /* Réserve l'espace pour le texte (420px carte + 100px texte) */
+    width: 298px; /* Maintient le ratio 340/480 pour éviter le rognage */
+  }
+  
+  .card {
+    height: 420px;
+    margin-bottom: 16px;
+  }
+  
+  .grid-container {
+    margin-top: 30px;
+    grid-template-columns: repeat(2, 71px);
+    grid-auto-rows: 100px;
+  }
+  
+  .grid-square {
+    border-radius: 4px;
+  }
+  
+  .bottom-action-section {
+    margin-top: 20px;
+    min-height: 150px;
+  }
+  
+  .explanation-text {
+    margin-bottom: 24px;
+  }
+  
+  .explanation-text h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  
+  .explanation-text p {
+    font-size: 14px;
+  }
+}
+
+@media (max-height: 800px) {
+  .card-wrapper {
+    min-height: 480px; /* Réserve l'espace (380px carte + 100px texte) */
+    width: 269px; /* Maintient le ratio 340/480 */
+  }
+
+  .card {
+    height: 380px;
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(2, 60px);
+    grid-auto-rows: 85px;
+  }
+  
+  .bottom-action-section {
+    margin-top: 10px;
+    min-height: 130px;
+  }
 }

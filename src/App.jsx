@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import pairsData from './data/pairs.json';
+import { soundManager } from './utils/soundManager';
 
 const ROUND_PAIRS = pairsData.pairs.slice(0, 8);
 const LINK_OFFSET = 18;
@@ -66,8 +67,20 @@ function App() {
   const [currentView, setCurrentView]     = useState('sequence-1');
   const [wrongAttempt, setWrongAttempt]   = useState(false);
   const [matchedPairIds, setMatchedPairIds] = useState([]);
+  const [hintLeftOpen, setHintLeftOpen]   = useState(false);
+  const [hintRightOpen, setHintRightOpen] = useState(false);
   const [shuffledInspiration] = useState(() => shuffleArray(ROUND_PAIRS));
   const [shuffledInnovation]  = useState(() => shuffleArray(ROUND_PAIRS));
+
+  useEffect(() => {
+    soundManager.init();
+  }, []);
+
+  useEffect(() => {
+    if (currentView === 'sequence-2') {
+      soundManager.play('levelTransition');
+    }
+  }, [currentView]);
 
   const isLocked = linkStatus !== 'idle';
   const allFound = matchedPairIds.length === ROUND_PAIRS.length;
@@ -77,6 +90,7 @@ function App() {
   const linkedPair        = ROUND_PAIRS.find(p => p.id === selectedLeft)  ?? null;
 
   const handleLier = () => {
+    soundManager.play('button');
     if (isLocked) return;
     if (selectedLeft === selectedRight) {
       setLinkStatus('linking');
@@ -86,8 +100,14 @@ function App() {
   };
 
   const handleAnimationComplete = (definition) => {
-    if (definition === 'linking')       setLinkStatus('linked');
-    if (definition === 'linking-wrong') setLinkStatus('shaking');
+    if (definition === 'linking') {
+      soundManager.play('correct');
+      setLinkStatus('linked');
+    }
+    if (definition === 'linking-wrong') {
+      soundManager.play('wrong');
+      setLinkStatus('shaking');
+    }
     if (definition === 'shaking')       setLinkStatus('separating');
     if (definition === 'separating') {
       setLinkStatus('idle');
@@ -96,20 +116,35 @@ function App() {
   };
 
   const handleSuivant = () => {
+    soundManager.play('button');
     setMatchedPairIds(prev => [...prev, selectedLeft]);
     setLinkStatus('idle');
-    setSelectedLeft(null);
-    setSelectedRight(null);
     setWrongAttempt(false);
+    setHintLeftOpen(false);
+    setHintRightOpen(false);
   };
 
-  const handleReessayer = () => {
-    setWrongAttempt(false);
-    setSelectedLeft(null);
-    setSelectedRight(null);
+  const handleSelectLeft = (id) => {
+    if (isLocked || matchedPairIds.includes(id)) return;
+    if (id !== selectedLeft) {
+      soundManager.play('cardFlip');
+      setHintLeftOpen(false);
+    }
+    setSelectedLeft(id);
+    if (wrongAttempt) setWrongAttempt(false);
   };
 
-  const showDescriptions = linkStatus === 'idle' && !wrongAttempt;
+  const handleSelectRight = (id) => {
+    if (isLocked || matchedPairIds.includes(id)) return;
+    if (id !== selectedRight) {
+      soundManager.play('cardFlip');
+      setHintRightOpen(false);
+    }
+    setSelectedRight(id);
+    if (wrongAttempt) setWrongAttempt(false);
+  };
+
+  const canShowHintToggle = linkStatus === 'idle';
 
   const renderLeftGrid = () => shuffledInspiration.map((pair) => {
     const isSelected = selectedLeft === pair.id;
@@ -118,7 +153,7 @@ function App() {
       <div
         key={`left-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
-        onClick={() => !isLocked && !isMatched && setSelectedLeft(pair.id)}
+        onClick={() => handleSelectLeft(pair.id)}
       >
         <img src={pair.inspiration.image} alt={pair.inspiration.alt} className="grid-img" />
       </div>
@@ -132,7 +167,7 @@ function App() {
       <div
         key={`right-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
-        onClick={() => !isLocked && !isMatched && setSelectedRight(pair.id)}
+        onClick={() => handleSelectRight(pair.id)}
       >
         <img src={pair.innovation.image} alt={pair.innovation.alt} className="grid-img" />
       </div>
@@ -177,18 +212,56 @@ function App() {
                 onAnimationComplete={handleAnimationComplete}
               >
                 <div className="card placeholder-card-left">
-                  <img
-                    src={selectedLeftPair?.inspiration.image ?? '/assets/cards/inspiration/card-inspiration-01.webp'}
-                    alt={selectedLeftPair?.inspiration.alt ?? 'Inspiration'}
-                    className="card-img"
-                  />
+                  <AnimatePresence mode="wait">
+                    {selectedLeftPair ? (
+                      <motion.img
+                        key={selectedLeftPair.id}
+                        src={selectedLeftPair.inspiration.image}
+                        alt={selectedLeftPair.inspiration.alt}
+                        className="card-img"
+                        initial={{ rotateY: 90 }}
+                        animate={{ rotateY: 0 }}
+                        exit={{ rotateY: -90 }}
+                        transition={{ duration: 0.25, ease: "linear" }}
+                      />
+                    ) : (
+                      <motion.div
+                        key="placeholder-left"
+                        className="card-placeholder-state"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <span className="card-placeholder-arrow">←</span>
+                        <span className="card-placeholder-text">Sélectionner une carte</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <AnimatePresence>
-                  {showDescriptions && selectedLeftPair && (
-                    <motion.div
-                      className="description"
+                <AnimatePresence mode="wait">
+                  {canShowHintToggle && selectedLeftPair && (
+                    <motion.button
+                      key="hint-toggle-left"
+                      type="button"
+                      className="hint-toggle"
+                      onClick={() => setHintLeftOpen(v => !v)}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, transition: { duration: 0 } }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <span className="hint-toggle-icon" aria-hidden="true">?</span>
+                      {hintLeftOpen ? "Masquer l'indice" : "Voir l'indice"}
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {canShowHintToggle && selectedLeftPair && hintLeftOpen && (
+                    <motion.div
+                      className="description"
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, transition: { duration: 0 } }}
                       transition={{ duration: 0.3 }}
                     >
@@ -207,18 +280,76 @@ function App() {
                 transition={getTransition(linkStatus)}
               >
                 <div className="card placeholder-card-right">
-                  <img
-                    src={selectedRightPair?.innovation.image ?? '/assets/cards/innovation/card-innovation-01.webp'}
-                    alt={selectedRightPair?.innovation.alt ?? 'Innovation'}
-                    className="card-img"
-                  />
+                  <AnimatePresence mode="wait">
+                    {selectedRightPair ? (
+                      <motion.img
+                        key={selectedRightPair.id}
+                        src={selectedRightPair.innovation.image}
+                        alt={selectedRightPair.innovation.alt}
+                        className="card-img"
+                        initial={{ rotateY: 90 }}
+                        animate={{ rotateY: 0 }}
+                        exit={{ rotateY: -90 }}
+                        transition={{ duration: 0.25, ease: "linear" }}
+                      />
+                    ) : (
+                      <motion.div
+                        key="placeholder-right"
+                        className="card-placeholder-state"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <span className="card-placeholder-arrow">→</span>
+                        <span className="card-placeholder-text">Sélectionner une carte</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  
+                  {/* Glow effect test on card 2 */}
+                  {selectedRightPair?.id === 2 && (
+                    <motion.img
+                      src="/assets/images/test.png"
+                      alt="Glow effect"
+                      className="card-img"
+                      style={{ zIndex: 1 }}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={
+                        linkStatus === 'linked' 
+                          ? { opacity: 1, scale: [1, 1.05, 1] } 
+                          : { opacity: 0, scale: 1 }
+                      }
+                      transition={{ 
+                        opacity: { duration: 0.3 },
+                        scale: { duration: 0.6, ease: "easeInOut" }
+                      }}
+                    />
+                  )}
                 </div>
-                <AnimatePresence>
-                  {showDescriptions && selectedRightPair && (
-                    <motion.div
-                      className="description"
+                <AnimatePresence mode="wait">
+                  {canShowHintToggle && selectedRightPair && (
+                    <motion.button
+                      key="hint-toggle-right"
+                      type="button"
+                      className="hint-toggle"
+                      onClick={() => setHintRightOpen(v => !v)}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, transition: { duration: 0 } }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <span className="hint-toggle-icon" aria-hidden="true">?</span>
+                      {hintRightOpen ? "Masquer l'indice" : "Voir l'indice"}
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {canShowHintToggle && selectedRightPair && hintRightOpen && (
+                    <motion.div
+                      className="description"
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, transition: { duration: 0 } }}
                       transition={{ duration: 0.3 }}
                     >
@@ -275,7 +406,10 @@ function App() {
                     <motion.button
                       key="sequence-suivante"
                       className="btn-lier"
-                      onClick={() => setCurrentView('sequence-2')}
+                      onClick={() => {
+                        soundManager.play('button');
+                        setCurrentView('sequence-2');
+                      }}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
@@ -284,7 +418,7 @@ function App() {
                       Séquence suivante
                     </motion.button>
                   )}
-                  {!allFound && linkStatus === 'idle' && !wrongAttempt && selectedLeft !== null && selectedRight !== null && (
+                  {!allFound && linkStatus === 'idle' && !wrongAttempt && selectedLeft !== null && selectedRight !== null && !matchedPairIds.includes(selectedLeft) && !matchedPairIds.includes(selectedRight) && (
                     <motion.button
                       key="lier"
                       className="btn-lier"
@@ -310,19 +444,6 @@ function App() {
                       Suivant
                     </motion.button>
                   )}
-                  {!allFound && linkStatus === 'idle' && wrongAttempt && (
-                    <motion.button
-                      key="reessayer"
-                      className="btn-lier"
-                      onClick={handleReessayer}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.35, ease: 'easeOut' }}
-                    >
-                      Réessayer
-                    </motion.button>
-                  )}
                 </AnimatePresence>
               </div>
             </div>
@@ -341,7 +462,10 @@ function App() {
             <h2 className="transition-title">
               S<span style={{ fontStyle: 'italic' }}>é</span>quence 2<span style={{ fontFamily: 'Geist Sans, sans-serif', fontWeight: 300, fontSize: '0.9em' }}>/4</span>
             </h2>
-            <button className="btn-commencer" onClick={() => setCurrentView('sequence-1')}>
+            <button className="btn-commencer" onClick={() => {
+              soundManager.play('gameStart');
+              setCurrentView('sequence-1');
+            }}>
               Commencer
             </button>
           </motion.main>
