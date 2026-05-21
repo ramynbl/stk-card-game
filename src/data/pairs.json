@@ -16,14 +16,14 @@
       "inspiration": {
         "title": "Nageoires de baleine",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-01.webp",
         "shortDescription": "Sa morphologie brise la résistance du courant pour glisser avec un effort minimal.",
         "alt": "Baleine à bosse nageant dans l'océan"
       },
       "innovation": {
         "title": "Éoliennes",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-01.webp",
         "shortDescription": "Ces pales géantes tournent même par vent très faible grâce à leur profil unique.",
         "alt": "Pales d'éolienne avec cannelures imitant la baleine"
       },
@@ -39,14 +39,14 @@
       "inspiration": {
         "title": "Feuille de lotus",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-02.webp",
         "shortDescription": "L'eau perle sur sa surface et emporte la poussière sans jamais la mouiller.",
         "alt": "Goutte d'eau sur une feuille de lotus"
       },
       "innovation": {
         "title": "Surface hydrofuge",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-02.webp",
         "shortDescription": "Des façades et tissus qui restent propres et secs grâce à un revêtement nanostructuré.",
         "alt": "Tissu hydrofuge repoussant l'eau"
       },
@@ -62,14 +62,14 @@
       "inspiration": {
         "title": "Pattes de gecko",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-03.webp",
         "shortDescription": "Le gecko grimpe au plafond sans colle, juste avec des millions de poils microscopiques.",
         "alt": "Gecko accroché à une vitre"
       },
       "innovation": {
         "title": "Adhésif sec",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-03.webp",
         "shortDescription": "Un ruban réutilisable qui colle sans laisser de traces ni de résidu chimique.",
         "alt": "Adhésif sec inspiré du gecko"
       },
@@ -85,14 +85,14 @@
       "inspiration": {
         "title": "Ailes de papillon",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-04.webp",
         "shortDescription": "Leurs couleurs viennent de structures microscopiques qui piègent la lumière.",
         "alt": "Aile de papillon Morpho bleu"
       },
       "innovation": {
         "title": "Cellules solaires",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-04.webp",
         "shortDescription": "Des panneaux qui captent davantage de lumière grâce à des nanostructures inspirées du Morpho.",
         "alt": "Panneau solaire nouvelle génération"
       },
@@ -108,14 +108,14 @@
       "inspiration": {
         "title": "Peau de requin",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-05.webp",
         "shortDescription": "Couverte de petites écailles qui réduisent les turbulences dans l'eau.",
         "alt": "Détail de la peau d'un requin"
       },
       "innovation": {
         "title": "Combinaisons natation",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-05.webp",
         "shortDescription": "Un tissu qui glisse mieux dans l'eau et bat des records olympiques.",
         "alt": "Combinaison de natation haute performance"
       },
@@ -131,14 +131,14 @@
       "inspiration": {
         "title": "Termitière",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-06.webp",
         "shortDescription": "Reste fraîche en plein désert grâce à un réseau de cheminées naturelles.",
         "alt": "Termitière africaine dans la savane"
       },
       "innovation": {
         "title": "Climatisation passive",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-06.webp",
         "shortDescription": "Un bâtiment qui se ventile naturellement, sans climatisation électrique.",
         "alt": "Centre commercial Eastgate à Harare"
       },
@@ -154,14 +154,14 @@
       "inspiration": {
         "title": "Bec du martin-pêcheur",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-07.webp",
         "shortDescription": "Plonge dans l'eau sans éclaboussure, à pleine vitesse, sans bruit.",
         "alt": "Martin-pêcheur en train de plonger"
       },
       "innovation": {
         "title": "TGV Shinkansen",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-07.webp",
         "shortDescription": "Un train à grande vitesse plus silencieux et 15 % plus économe en énergie.",
         "alt": "Train Shinkansen japonais"
       },
@@ -177,14 +177,14 @@
       "inspiration": {
         "title": "Bardane",
         "subtitle": "Inspiration",
-        "image": "/assets/cards/inspiration/card-inspiration-01.png",
+        "image": "/assets/cards/inspiration/card-inspiration-08.webp",
         "shortDescription": "Cette plante s'accroche aux poils des animaux par de minuscules crochets.",
         "alt": "Fruit de bardane couvert de crochets"
       },
       "innovation": {
         "title": "Velcro",
         "subtitle": "Innovation",
-        "image": "/assets/cards/innovation/card-innovation-01.png",
+        "image": "/assets/cards/innovation/card-innovation-08.webp",
         "shortDescription": "Une fermeture rapide qui agrippe et se détache à volonté.",
         "alt": "Bande Velcro agrippante"
       },
