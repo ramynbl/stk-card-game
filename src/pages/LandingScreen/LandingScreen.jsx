@@ -2,14 +2,11 @@ import { motion } from "framer-motion";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import styles from "./LandingScreen.module.css";
-// Génère les chemins directement depuis les 21 fichiers disponibles (pairs.json contient des chemins .png incomplets pour les paires 9-22)
-const CARD_IMAGES = Array.from({ length: 21 }, (_, i) => {
-    const n = String(i + 1).padStart(2, "0");
-    return [
-        `/assets/cards/inspiration/card-inspiration-${n}.webp`,
-        `/assets/cards/innovation/card-innovation-${n}.webp`,
-    ];
-}).flat();
+// Toutes les inspirations d'abord, puis toutes les innovations — les paires sont ainsi séparées de 21 positions
+const CARD_IMAGES = [
+    ...Array.from({ length: 21 }, (_, i) => `/assets/cards/inspiration/card-inspiration-${String(i + 1).padStart(2, "0")}.webp`),
+    ...Array.from({ length: 21 }, (_, i) => `/assets/cards/innovation/card-innovation-${String(i + 1).padStart(2, "0")}.webp`),
+];
 
 // Format : [left, top, width, height, tone, opacity] — ratio 7:10 (images 350×500)
 const W = 63;
