@@ -8,16 +8,19 @@ const SLIDES = [
         eyebrow: "Le biomimétisme",
         showLogo: true,
         body: "Apprenez en plus sur le biomimétisme avec une expérience ludique et interactive.",
+        video: "/assets/videos/video-intro.mp4-2.mp4",
     },
     {
         eyebrow: "Comment faire le lien",
         showLogo: false,
         body: "Associez chaque carte de la nature à son innovation pour découvrir le lien qui les unit.",
+        video: "/assets/videos/video-intro.mp4-2.mp4",
     },
     {
-        eyebrow: "Je ne sais pas ?",
+        eyebrow: "Besoin d'aide ?",
         showLogo: false,
         body: "Des indices sont disponibles à tout moment pour vous guider si vous êtes bloqué.",
+        video: "/assets/videos/video-intro.mp4-2.mp4",
     },
 ];
 
@@ -35,7 +38,6 @@ function UnboardingScreen({ onComplete }) {
         }
     }, [isLast]);
 
-
     return (
         <div className={styles.page}>
             <div className={styles.inner}>
@@ -48,7 +50,14 @@ function UnboardingScreen({ onComplete }) {
                         exit={{ opacity: 0, x: -32 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                     >
-                        <div className={styles.videoPlaceholder} />
+                        <video
+                            className={styles.videoPlaceholder}
+                            src={slide.video}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                        />
 
                         <div className={styles.textBlock}>
                             {slide.eyebrow && (
