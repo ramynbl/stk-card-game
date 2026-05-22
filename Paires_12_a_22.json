@@ -1,0 +1,82 @@
+[
+    {
+        "id": 12,
+        "inspiration": "La cicatrice",
+        "technologie": "le béton cicatrisant",
+        "description_inspiration": "La peau referme ses plaies en mobilisant ses propres ressources internes.",
+        "description_technologie": "Un matériau de construction qui colmate ses fissures sans intervention humaine.",
+        "explication": "Quand de l'eau s'infiltre dans une fissure, des bactéries encapsulées dans le béton se réactivent. Elles consomment des nutriments stockés à leur côté et produisent un minéral qui rebouche naturellement la fissure."
+    },
+    {
+        "id": 13,
+        "inspiration": "Le coléoptère de Namibie",
+        "technologie": "les filets capteurs de rosée",
+        "description_inspiration": "Ce scarabée du désert extrait l'eau de l'air du matin grâce à la forme de son dos.",
+        "description_technologie": "Des filets récoltent l'humidité atmosphérique dans des régions où l'eau est rare.",
+        "explication": "Le dos du scarabée alterne des zones qui attirent l'eau et d'autres qui la repoussent. Les gouttelettes grossissent sur les premières, puis glissent vers sa bouche via les secondes. Les filets reprennent ce principe pour collecter l'eau sans consommer d'énergie."
+    },
+    {
+        "id": 14,
+        "inspiration": "Le corail",
+        "technologie": "le ciment neutre en carbone",
+        "description_inspiration": "Ces organismes marins bâtissent leur squelette en transformant le CO₂ dissous.",
+        "description_technologie": "Un liant minéral dont la production absorbe autant de CO₂ qu'elle n'en rejette.",
+        "explication": "Les polypes de corail puisent le carbone présent dans l'eau pour sécréter leur structure solide. En reproduisant ce mécanisme à échelle industrielle, on dissout du CO₂ dans l'eau de mer pour fabriquer un matériau de construction qui capte plus qu'il n'en émet."
+    },
+    {
+        "id": 15,
+        "inspiration": "La corbeille de Vénus",
+        "technologie": "le 30 St Mary Axe",
+        "description_inspiration": "Cette éponge des fonds marins fabrique une armature fine et pourtant indéformable.",
+        "description_technologie": "Ce gratte-ciel londonien tire sa solidité d'une géométrie en spirale venue du vivant.",
+        "explication": "L'éponge Euplectella tisse des fibres de verre biologiques en treillis diagonal, ce qui lui donne une rigidité remarquable pour un poids minimal. Les architectes du Gherkin ont transposé cette logique pour concevoir une tour économe en acier et capable d'encaisser les vents urbains."
+    },
+    {
+        "id": 16,
+        "inspiration": "L'effet lotus",
+        "technologie": "les surfaces hydrophobes",
+        "description_inspiration": "La feuille de cette plante reste impeccable par tous les temps sans aucun entretien.",
+        "description_technologie": "Des revêtements architecturaux qui repoussent les salissures sans produit chimique.",
+        "explication": "La surface de la feuille de lotus est couverte de reliefs invisibles à l'œil nu qui empêchent l'eau d'adhérer. Les gouttes roulent en emportant poussières et dépôts. En reproduisant cette texture sur des peintures ou des tuiles, on obtient des façades qui se nettoient sous la pluie."
+    },
+    {
+        "id": 17,
+        "inspiration": "Le manchot",
+        "technologie": "le District 11",
+        "description_inspiration": "Face au froid polaire, ces oiseaux se serrent pour garder la chaleur collective.",
+        "description_technologie": "Un quartier russe dont la disposition compacte réduit les pertes de chaleur.",
+        "explication": "Les manchots empereurs se serrent en colonie dense, exposant le minimum de surface au vent. Le projet District 11 à Skolkovo reprend cette logique : des villas regroupées par blocs de dix forment un ensemble compact qui maintient des températures intérieures supérieures de 5°C."
+    },
+    {
+        "id": 18,
+        "inspiration": "La moule",
+        "technologie": "la colle forte",
+        "description_inspiration": "Ce mollusque s'accroche à n'importe quelle surface immergée grâce à ses filaments.",
+        "description_technologie": "Un adhésif capable de lier des molécules actives sur du métal, même en présence d'eau.",
+        "explication": "La moule sécrète une protéine contenant une molécule qui se fixe à presque tout, même sous l'eau. Des chercheurs ont reproduit cette chimie pour créer une colle permettant de fixer des enzymes sur des surfaces métalliques, ouvrant des applications en médecine et en capteurs biologiques."
+    },
+    {
+        "id": 19,
+        "inspiration": "Le zèbre",
+        "technologie": "le camouflage dazzle",
+        "description_inspiration": "Ses rayures brouillent la perception du mouvement chez celui qui l'observe.",
+        "description_technologie": "En 1917, des motifs géométriques sur des coques rendaient leur cap illisible.",
+        "explication": "Le contraste fort des rayures du zèbre perturbe la lecture du déplacement par les prédateurs. Le peintre Norman Wilkinson s'en est inspiré pour couvrir les navires britanniques de formes angulaires, rendant leur cap et leur vitesse difficiles à évaluer pour les torpilleurs ennemis."
+    },
+    {
+        "id": 20,
+        "inspiration": "L'os humain",
+        "technologie": "la Tour Eiffel",
+        "description_inspiration": "Notre squelette densifie la matière là où les efforts sont forts, sans superflu.",
+        "description_technologie": "Cette structure parisienne place son fer là où les forces l'exigent exactement.",
+        "explication": "L'intérieur d'un os n'est pas homogène : la matière se densifie là où les contraintes mécaniques sont fortes. Eiffel a suivi cette même logique en ne plaçant le métal qu'aux endroits soumis à compression ou traction, ce qui rend sa tour plus légère que le volume d'air qu'elle occupe."
+    },
+    {
+        "id": 22,
+        "inspiration": "L'orchidée",
+        "technologie": "les Gardens by the Bay",
+        "description_inspiration": "Cette fleur unit une forme aérienne complexe à une gestion efficace de ses ressources.",
+        "description_technologie": "Ce parc de Singapour intègre dans ses arbres géants des fonctions énergétiques.",
+        "explication": "Les Supertrees de Gardens by the Bay s'inspirent de la forme de l'orchidée pour créer des tours végétales qui captent l'eau de pluie, accueillent des panneaux solaires et ventilent les serres environnantes. Comme la fleur, chaque structure unit esthétique et efficacité dans un seul organisme."
+    }
+]

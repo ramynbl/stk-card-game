@@ -62,7 +62,7 @@ function getTransition(linkStatus) {
   return linkTransition;
 }
 
-export default function GameRound({ pairs, sequenceNumber, totalSequences, onComplete }) {
+export default function GameRound({ pairs, sequenceNumber, totalSequences, onComplete, onHome }) {
   const [selectedLeft, setSelectedLeft]     = useState(null);
   const [selectedRight, setSelectedRight]   = useState(null);
   const [linkStatus, setLinkStatus]         = useState('idle');
@@ -73,7 +73,9 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
   const [shuffledInspiration] = useState(() => shuffleArray(pairs));
   const [shuffledInnovation]  = useState(() => shuffleArray(pairs));
 
-  const isLocked = linkStatus !== 'idle';
+  // Bloqué uniquement pendant les animations (pas pendant 'linked' où on peut re-sélectionner)
+  const isAnimating = ['linking', 'linking-wrong', 'shaking', 'separating'].includes(linkStatus);
+  const isLocked = isAnimating;
   const allFound = matchedPairIds.length === pairs.length;
 
   const selectedLeftPair  = pairs.find(p => p.id === selectedLeft)  ?? null;
@@ -82,7 +84,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   const handleLier = () => {
     soundManager.play('button');
-    if (isLocked) return;
+    if (isAnimating || linkStatus !== 'idle') return;
     if (selectedLeft === selectedRight) {
       setLinkStatus('linking');
     } else {
@@ -115,8 +117,18 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
     setHintRightOpen(false);
   };
 
+  const commitMatchIfLinked = () => {
+    if (linkStatus === 'linked') {
+      setMatchedPairIds(prev => (prev.includes(selectedLeft) ? prev : [...prev, selectedLeft]));
+      setLinkStatus('idle');
+      setHintLeftOpen(false);
+      setHintRightOpen(false);
+    }
+  };
+
   const handleSelectLeft = (id) => {
-    if (isLocked || matchedPairIds.includes(id)) return;
+    if (isAnimating || matchedPairIds.includes(id)) return;
+    commitMatchIfLinked();
     if (id !== selectedLeft) {
       soundManager.play('cardFlip');
       setHintLeftOpen(false);
@@ -126,7 +138,8 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
   };
 
   const handleSelectRight = (id) => {
-    if (isLocked || matchedPairIds.includes(id)) return;
+    if (isAnimating || matchedPairIds.includes(id)) return;
+    commitMatchIfLinked();
     if (id !== selectedRight) {
       soundManager.play('cardFlip');
       setHintRightOpen(false);
@@ -143,7 +156,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
     return (
       <div
         key={`left-${pair.id}`}
-        className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
+        className={`grid-square ${isSelected ? 'selected' : ''} ${isAnimating || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectLeft(pair.id)}
         aria-label={`Sélectionner l'inspiration ${pair.inspiration.title}`}
         role="button"
@@ -166,7 +179,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
     return (
       <div
         key={`right-${pair.id}`}
-        className={`grid-square ${isSelected ? 'selected' : ''} ${isLocked || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
+        className={`grid-square ${isSelected ? 'selected' : ''} ${isAnimating || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectRight(pair.id)}
         aria-label={`Sélectionner l'innovation ${pair.innovation.title}`}
         role="button"
@@ -194,8 +207,13 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
     >
       <header className="header">
         <div className="logo-placeholder">
-          <h1>STK</h1>
-          <span>ARCHITECTURE</span>
+          <button
+            onClick={onHome}
+            className="logo-link"
+            aria-label="Retourner à la page d'accueil"
+          >
+            <img src="/assets/images/STK-logo.svg" alt="STK Architecture" className="header-logo" />
+          </button>
         </div>
         <div className="header-right">
           <div className="sequence">
