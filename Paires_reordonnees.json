@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "inspiration": "Aile de papillon",
+        "technologie": "les panneaux solaires",
+        "description_inspiration": "À sang froid, il doit réguler sa température interne pour pouvoir prendre son envol.",
+        "description_technologie": "Un récepteur d'énergie extérieure qui s'auto-refroidit pour rester performant.",
+        "explication": "Les ailes de ce papillon rejettent la chaleur sous forme d'ondes pour éviter de surchauffer. En imitant cette régulation thermique, ces panneaux solaires restent frais et gardent un rendement maximal."
+    },
+    {
+        "id": 2,
+        "inspiration": "Les nageoires de baleines à bosses",
+        "technologie": "les éoliennes",
+        "description_inspiration": "Sa morphologie brise la résistance du courant pour glisser avec un effort minimal.",
+        "description_technologie": "Ces pales géantes tournent même par vent très faible grâce à leur profil unique.",
+        "explication": "Les bosses sur les nageoires de la baleine créent des micro-vortex qui améliorent sa portance. Sculptées de la même façon, ces pales d'éoliennes captent le vent avec beaucoup moins de frottement."
+    },
+    {
+        "id": 3,
+        "inspiration": "Le martin-pêcheur",
+        "technologie": "le TGV Japonais",
+        "description_inspiration": "Son bec effilé fend l'air et l'eau en silence pour surprendre ses proies.",
+        "description_technologie": "Une forme aérodynamique pour réduire le bruit à haute vitesse en ville.",
+        "explication": "Le bec du martin-pêcheur pénètre l'eau sans créer d'onde de choc. En imitant sa forme fuselée, le nez du TGV fend l'air en silence et supprime le dérangeant \"bang\" à la sortie des tunnels."
+    },
+    {
+        "id": 4,
+        "inspiration": "Le gekko",
+        "technologie": "la geckskin",
+        "description_inspiration": "Capable de courir au plafond la tête en bas sans jamais craindre la chute.",
+        "description_technologie": "Un simple morceau de ce tissu peut suspendre un écran plat sur un mur.",
+        "explication": "Les pattes du gekko possèdent des millions de micro-poils qui s'aimantent à la matière à l'échelle moléculaire. Cet adhésif imite cette friction sèche pour fixer des charges lourdes sans colle."
+    },
+    {
+        "id": 5,
+        "inspiration": "Les fruits de bardane",
+        "technologie": "le velcro",
+        "description_inspiration": "Cette plante sauvage utilise les chiens et les promeneurs pour semer ses graines.",
+        "description_technologie": "Cette invention lie deux objets par simple pression mécanique, sans aucun adhésif.",
+        "explication": "Les crochets souples de ce fruit s'agrippent naturellement aux boucles formées par les poils d'animaux. Le velcro reproduit ce duo mécanique pour fermer et ouvrir des tissus à l'infini."
+    },
+    {
+        "id": 6,
+        "inspiration": "Le Nautile",
+        "technologie": "les turboréacteurs",
+        "description_inspiration": "Il glisse sans effort dans l'océan grâce à une forme hydrodynamique millénaire.",
+        "description_technologie": "Un système conçu pour fendre l'atmosphère à haute altitude et à grande vitesse.",
+        "explication": "La coquille en spirale du nautile canalise l'eau pour le propulser par réaction. Les turboréacteurs copient cette géométrie courbe pour comprimer et guider les flux d'air avec un rendement maximal."
+    },
+    {
+        "id": 7,
+        "inspiration": "La peau du requin",
+        "technologie": "les combinaisons de natation",
+        "description_inspiration": "Son corps est recouvert de millions de micro-dents alignées face au courant.",
+        "description_technologie": "Une innovation textile qui a bousculé tous les records du monde de vitesse.",
+        "explication": "La peau de ce prédateur est couverte de micro-dentelures qui canalisent l'eau et éliminent les turbulences. Cette combinaison imite ce relief rugueux pour aider le nageur à glisser bien plus vite."
+    },
+    {
+        "id": 8,
+        "inspiration": "Le papillon Greta oto",
+        "technologie": "les verres anti-reflet",
+        "description_inspiration": "Ses membranes ne créent aucun éclat brillant qui pourrait trahir sa présence.",
+        "description_technologie": "Permet de lire son smartphone en plein soleil sans être gêné par son propre visage.",
+        "explication": "Les ailes de ce papillon possèdent un relief invisible qui empêche la lumière de rebondir. En copiant cette surface texturée sur les écrans et les lunettes, on élimine enfin l'effet miroir."
+    },
+    {
+        "id": 9,
+        "inspiration": "Le coléoptère de Namibie",
+        "technologie": "les filets capteurs de rosée",
+        "description_inspiration": "Ce scarabée du désert extrait l'eau de l'air du matin grâce à la forme de son dos.",
+        "description_technologie": "Des filets récoltent l'humidité atmosphérique dans des régions où l'eau est rare.",
+        "explication": "Le dos du scarabée alterne des zones qui attirent l'eau et d'autres qui la repoussent. Les gouttelettes grossissent sur les premières, puis glissent vers sa bouche via les secondes. Les filets reprennent ce principe pour collecter l'eau sans consommer d'énergie."
+    },
+    {
+        "id": 10,
+        "inspiration": "La cicatrice",
+        "technologie": "le béton cicatrisant",
+        "description_inspiration": "La peau referme ses plaies en mobilisant ses propres ressources internes.",
+        "description_technologie": "Un matériau de construction qui colmate ses fissures sans intervention humaine.",
+        "explication": "Quand de l'eau s'infiltre dans une fissure, des bactéries encapsulées dans le béton se réactivent. Elles consomment des nutriments stockés à leur côté et produisent un minéral qui rebouche naturellement la fissure."
+    },
+    {
+        "id": 11,
+        "inspiration": "La corbeille de Vénus",
+        "technologie": "le 30 St Mary Axe",
+        "description_inspiration": "Cette éponge des fonds marins fabrique une armature fine et pourtant indéformable.",
+        "description_technologie": "Ce gratte-ciel londonien tire sa solidité d'une géométrie en spirale venue du vivant.",
+        "explication": "L'éponge Euplectella tisse des fibres de verre biologiques en treillis diagonal, ce qui lui donne une rigidité remarquable pour un poids minimal. Les architectes du Gherkin ont transposé cette logique pour concevoir une tour économe en acier et capable d'encaisser les vents urbains."
+    },
+    {
+        "id": 12,
+        "inspiration": "L'effet lotus",
+        "technologie": "les surfaces hydrophobes",
+        "description_inspiration": "La feuille de cette plante reste impeccable par tous les temps sans aucun entretien.",
+        "description_technologie": "Des revêtements architecturaux qui repoussent les salissures sans produit chimique.",
+        "explication": "La surface de la feuille de lotus est couverte de reliefs invisibles à l'œil nu qui empêchent l'eau d'adhérer. Les gouttes roulent en emportant poussières et dépôts. En reproduisant cette texture sur des peintures ou des tuiles, on obtient des façades qui se nettoient sous la pluie."
+    },
+    {
+        "id": 13,
+        "inspiration": "Le corail",
+        "technologie": "le ciment neutre en carbone",
+        "description_inspiration": "Ces organismes marins bâtissent leur squelette en transformant le CO₂ dissous.",
+        "description_technologie": "Un liant minéral dont la production absorbe autant de CO₂ qu'elle n'en rejette.",
+        "explication": "Les polypes de corail puisent le carbone présent dans l'eau pour sécréter leur structure solide. En reproduisant ce mécanisme à échelle industrielle, on dissout du CO₂ dans l'eau de mer pour fabriquer un matériau de construction qui capte plus qu'il n'en émet."
+    },
+    {
+        "id": 14,
+        "inspiration": "Les lucioles",
+        "technologie": "les lampes LED",
+        "description_inspiration": "Son signal d'amour doit percer la nuit noire pour attirer un partenaire lointain.",
+        "description_technologie": "Une technologie idéale pour concevoir des écrans et des balises ultra-lumineux.",
+        "explication": "Les écailles en dents de scie de la luciole empêchent sa lumière de refléter vers l'intérieur. En copiant ces micro-pentes sur les puces LED, on libère les rayons piégés pour briller 55% plus fort."
+    },
+    {
+        "id": 15,
+        "inspiration": "La trompe du moustique",
+        "technologie": "l'aiguille médicale indolore",
+        "description_inspiration": "Cet insecte pénètre la barrière cutanée sans que sa cible ne s'en rende compte.",
+        "description_technologie": "Un dispositif de soin si fin que le système nerveux ne détecte pas sa présence.",
+        "explication": "La trompe du moustique est conique et dentelée, réduisant au minimum le contact avec les nerfs. Cette aiguille médicale copie ce relief microscopique pour glisser dans la peau sans douleur."
+    },
+    {
+        "id": 16,
+        "inspiration": "Le manchot",
+        "technologie": "le District 11",
+        "description_inspiration": "Face au froid polaire, ces oiseaux se serrent pour garder la chaleur collective.",
+        "description_technologie": "Un quartier russe dont la disposition compacte réduit les pertes de chaleur.",
+        "explication": "Les manchots empereurs se serrent en colonie dense, exposant le minimum de surface au vent. Le projet District 11 à Skolkovo reprend cette logique : des villas regroupées par blocs de dix forment un ensemble compact qui maintient des températures intérieures supérieures de 5°C."
+    },
+    {
+        "id": 17,
+        "inspiration": "La termitière",
+        "technologie": "le Eastgate Building",
+        "description_inspiration": "Ce monticule survit aux journées brûlantes et aux nuits glaciales du désert.",
+        "description_technologie": "Une solution constructive idéale pour les pays chauds qui manquent d'électricité.",
+        "explication": "La termitière aspire l'air frais par le bas et évacue le chaud par ses cheminées. Ce bâtiment imite ce poumon de terre pour s'auto-ventiler naturellement, réduisant sa climatisation de 90 %."
+    },
+    {
+        "id": 18,
+        "inspiration": "La moule",
+        "technologie": "la colle forte",
+        "description_inspiration": "Ce mollusque s'accroche à n'importe quelle surface immergée grâce à ses filaments.",
+        "description_technologie": "Un adhésif capable de lier des molécules actives sur du métal, même en présence d'eau.",
+        "explication": "La moule sécrète une protéine contenant une molécule qui se fixe à presque tout, même sous l'eau. Des chercheurs ont reproduit cette chimie pour créer une colle permettant de fixer des enzymes sur des surfaces métalliques, ouvrant des applications en médecine et en capteurs biologiques."
+    },
+    {
+        "id": 19,
+        "inspiration": "Le zèbre",
+        "technologie": "le camouflage dazzle",
+        "description_inspiration": "Ses rayures brouillent la perception du mouvement chez celui qui l'observe.",
+        "description_technologie": "En 1917, des motifs géométriques sur des coques rendaient leur cap illisible.",
+        "explication": "Le contraste fort des rayures du zèbre perturbe la lecture du déplacement par les prédateurs. Le peintre Norman Wilkinson s'en est inspiré pour couvrir les navires britanniques de formes angulaires, rendant leur cap et leur vitesse difficiles à évaluer pour les torpilleurs ennemis."
+    },
+    {
+        "id": 20,
+        "inspiration": "L'orchidée",
+        "technologie": "les Gardens by the Bay",
+        "description_inspiration": "Cette fleur unit une forme aérienne complexe à une gestion efficace de ses ressources.",
+        "description_technologie": "Ce parc de Singapour intègre dans ses arbres géants des fonctions énergétiques.",
+        "explication": "Les Supertrees de Gardens by the Bay s'inspirent de la forme de l'orchidée pour créer des tours végétales qui captent l'eau de pluie, accueillent des panneaux solaires et ventilent les serres environnantes. Comme la fleur, chaque structure unit esthétique et efficacité dans un seul organisme."
+    },
+    {
+        "id": 21,
+        "inspiration": "L'os humain",
+        "technologie": "la Tour Eiffel",
+        "description_inspiration": "Notre squelette densifie la matière là où les efforts sont forts, sans superflu.",
+        "description_technologie": "Cette structure parisienne place son fer là où les forces l'exigent exactement.",
+        "explication": "L'intérieur d'un os n'est pas homogène : la matière se densifie là où les contraintes mécaniques sont fortes. Eiffel a suivi cette même logique en ne plaçant le métal qu'aux endroits soumis à compression ou traction, ce qui rend sa tour plus légère que le volume d'air qu'elle occupe."
+    }
+]
