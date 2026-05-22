@@ -19,16 +19,16 @@ function shuffleArray(arr) {
 }
 
 const inspirationVariants = {
-  idle:            { x: 0 },
-  linking:         { x: LINK_OFFSET },
-  linked:          { x: LINK_OFFSET },
+  idle: { x: 0 },
+  linking: { x: LINK_OFFSET },
+  linked: { x: LINK_OFFSET },
   'linking-wrong': { x: LINK_OFFSET },
   shaking: {
     x: [
       LINK_OFFSET,
       LINK_OFFSET + 10, LINK_OFFSET - 10,
-      LINK_OFFSET + 6,  LINK_OFFSET - 6,
-      LINK_OFFSET + 3,  LINK_OFFSET - 3,
+      LINK_OFFSET + 6, LINK_OFFSET - 6,
+      LINK_OFFSET + 3, LINK_OFFSET - 3,
       LINK_OFFSET,
     ],
   },
@@ -36,50 +36,51 @@ const inspirationVariants = {
 };
 
 const innovationVariants = {
-  idle:            { x: 0 },
-  linking:         { x: -LINK_OFFSET },
-  linked:          { x: -LINK_OFFSET },
+  idle: { x: 0 },
+  linking: { x: -LINK_OFFSET },
+  linked: { x: -LINK_OFFSET },
   'linking-wrong': { x: -LINK_OFFSET },
   shaking: {
     x: [
       -LINK_OFFSET,
       -LINK_OFFSET - 10, -LINK_OFFSET + 10,
-      -LINK_OFFSET - 6,  -LINK_OFFSET + 6,
-      -LINK_OFFSET - 3,  -LINK_OFFSET + 3,
+      -LINK_OFFSET - 6, -LINK_OFFSET + 6,
+      -LINK_OFFSET - 3, -LINK_OFFSET + 3,
       -LINK_OFFSET,
     ],
   },
   separating: { x: 0 },
 };
 
-const linkTransition     = { duration: 0.9, ease: [0.22, 1, 0.36, 1] };
-const shakeTransition    = { duration: 0.55, ease: 'easeInOut' };
+const linkTransition = { duration: 0.9, ease: [0.22, 1, 0.36, 1] };
+const shakeTransition = { duration: 0.55, ease: 'easeInOut' };
 const separateTransition = { duration: 0.7, ease: [0.4, 0, 0.6, 1] };
 
 function getTransition(linkStatus) {
-  if (linkStatus === 'shaking')    return shakeTransition;
+  if (linkStatus === 'shaking') return shakeTransition;
   if (linkStatus === 'separating') return separateTransition;
   return linkTransition;
 }
 
 export default function GameRound({ pairs, sequenceNumber, totalSequences, onComplete, onHome }) {
-  const [selectedLeft, setSelectedLeft]     = useState(null);
-  const [selectedRight, setSelectedRight]   = useState(null);
-  const [linkStatus, setLinkStatus]         = useState('idle');
-  const [wrongAttempt, setWrongAttempt]     = useState(false);
+  const [selectedLeft, setSelectedLeft] = useState(null);
+  const [selectedRight, setSelectedRight] = useState(null);
+  const [linkStatus, setLinkStatus] = useState('idle');
+  const [wrongAttempt, setWrongAttempt] = useState(false);
   const [matchedPairIds, setMatchedPairIds] = useState([]);
-  const [hintLeftOpen, setHintLeftOpen]     = useState(false);
-  const [hintRightOpen, setHintRightOpen]   = useState(false);
+  const [hintLeftOpen, setHintLeftOpen] = useState(false);
+  const [hintRightOpen, setHintRightOpen] = useState(false);
   const [shuffledInspiration] = useState(() => shuffleArray(pairs));
-  const [shuffledInnovation]  = useState(() => shuffleArray(pairs));
+  const [shuffledInnovation] = useState(() => shuffleArray(pairs));
+  const [dragOverSide, setDragOverSide] = useState(null);
 
   // Bloqué uniquement pendant les animations (pas pendant 'linked' où on peut re-sélectionner)
   const isAnimating = ['linking', 'linking-wrong', 'shaking', 'separating'].includes(linkStatus);
   const allFound = matchedPairIds.length === pairs.length;
 
-  const selectedLeftPair  = pairs.find(p => p.id === selectedLeft)  ?? null;
+  const selectedLeftPair = pairs.find(p => p.id === selectedLeft) ?? null;
   const selectedRightPair = pairs.find(p => p.id === selectedRight) ?? null;
-  const linkedPair        = pairs.find(p => p.id === selectedLeft)  ?? null;
+  const linkedPair = pairs.find(p => p.id === selectedLeft) ?? null;
 
   const handleLier = () => {
     soundManager.play('button');
@@ -100,7 +101,7 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
       soundManager.play('wrong');
       setLinkStatus('shaking');
     }
-    if (definition === 'shaking')    setLinkStatus('separating');
+    if (definition === 'shaking') setLinkStatus('separating');
     if (definition === 'separating') {
       setLinkStatus('idle');
       setWrongAttempt(true);
@@ -109,7 +110,18 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   const handleSuivant = () => {
     soundManager.play('button');
-    setMatchedPairIds(prev => (prev.includes(selectedLeft) ? prev : [...prev, selectedLeft]));
+    const newMatched = matchedPairIds.includes(selectedLeft)
+      ? matchedPairIds
+      : [...matchedPairIds, selectedLeft];
+    setMatchedPairIds(newMatched);
+
+    const remaining = pairs.filter(p => !newMatched.includes(p.id));
+    if (remaining.length > 0) {
+      const pick = () => remaining[Math.floor(Math.random() * remaining.length)].id;
+      setSelectedLeft(pick());
+      setSelectedRight(pick());
+    }
+
     setLinkStatus('idle');
     setWrongAttempt(false);
     setHintLeftOpen(false);
@@ -149,14 +161,38 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   const canShowHintToggle = linkStatus === 'idle';
 
+  const makeDropHandlers = (side) => ({
+    onDragOver: (e) => {
+      e.preventDefault();
+      if (dragOverSide !== side) setDragOverSide(side);
+    },
+    onDragLeave: () => setDragOverSide(null),
+    onDrop: (e) => {
+      e.preventDefault();
+      const data = e.dataTransfer.getData('application/x-stk-card');
+      setDragOverSide(null);
+      const prefix = `${side}:`;
+      if (!data.startsWith(prefix)) return;
+      const id = Number(data.slice(prefix.length));
+      if (Number.isNaN(id)) return;
+      if (side === 'left') handleSelectLeft(id);
+      else handleSelectRight(id);
+    },
+  });
+
   const renderLeftGrid = () => shuffledInspiration.map((pair) => {
     const isSelected = selectedLeft === pair.id;
-    const isMatched  = matchedPairIds.includes(pair.id);
+    const isMatched = matchedPairIds.includes(pair.id);
     return (
       <div
         key={`left-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isAnimating || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectLeft(pair.id)}
+        draggable={!isAnimating && !isMatched}
+        onDragStart={(e) => {
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('application/x-stk-card', `left:${pair.id}`);
+        }}
         aria-label={`Sélectionner l'inspiration ${pair.inspiration.title}`}
         role="button"
         tabIndex={0}
@@ -174,12 +210,17 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   const renderRightGrid = () => shuffledInnovation.map((pair) => {
     const isSelected = selectedRight === pair.id;
-    const isMatched  = matchedPairIds.includes(pair.id);
+    const isMatched = matchedPairIds.includes(pair.id);
     return (
       <div
         key={`right-${pair.id}`}
         className={`grid-square ${isSelected ? 'selected' : ''} ${isAnimating || isMatched ? 'locked' : ''} ${isMatched ? 'matched' : ''}`}
         onClick={() => handleSelectRight(pair.id)}
+        draggable={!isAnimating && !isMatched}
+        onDragStart={(e) => {
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('application/x-stk-card', `right:${pair.id}`);
+        }}
         aria-label={`Sélectionner l'innovation ${pair.innovation.title}`}
         role="button"
         tabIndex={0}
@@ -237,7 +278,10 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
             transition={getTransition(linkStatus)}
             onAnimationComplete={handleAnimationComplete}
           >
-            <div className="card placeholder-card-left">
+            <div
+              className={`card placeholder-card-left ${dragOverSide === 'left' ? 'drop-target-active' : ''}`}
+              {...makeDropHandlers('left')}
+            >
               <AnimatePresence mode="wait">
                 {selectedLeftPair ? (
                   <motion.img
@@ -326,7 +370,10 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
             animate={linkStatus}
             transition={getTransition(linkStatus)}
           >
-            <div className="card placeholder-card-right">
+            <div
+              className={`card placeholder-card-right ${dragOverSide === 'right' ? 'drop-target-active' : ''}`}
+              {...makeDropHandlers('right')}
+            >
               <AnimatePresence mode="wait">
                 {selectedRightPair ? (
                   <motion.img
@@ -446,6 +493,23 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
             )}
           </AnimatePresence>
 
+          {/* Encouragement entre deux paires */}
+          <AnimatePresence>
+            {linkStatus === 'idle' && !wrongAttempt
+              && matchedPairIds.length > 0
+              && matchedPairIds.length < pairs.length && (
+              <motion.div
+                className="explanation-text continue-hint"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <p>Continue à découvrir les autres liens entre le vivant et l'innovation.</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* Bouton contextuel */}
           <div className="center-action">
             <AnimatePresence mode="wait">
@@ -469,18 +533,18 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
                 && selectedLeft !== null && selectedRight !== null
                 && !matchedPairIds.includes(selectedLeft)
                 && !matchedPairIds.includes(selectedRight) && (
-                <motion.button
-                  key="lier"
-                  className="btn-lier"
-                  onClick={handleLier}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Lier
-                </motion.button>
-              )}
+                  <motion.button
+                    key="lier"
+                    className="btn-lier"
+                    onClick={handleLier}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Lier
+                  </motion.button>
+                )}
               {linkStatus === 'linked' && (
                 <motion.button
                   key="suivant"

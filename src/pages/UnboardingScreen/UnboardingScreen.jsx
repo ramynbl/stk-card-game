@@ -8,19 +8,19 @@ const SLIDES = [
         eyebrow: "Le biomimétisme",
         showLogo: true,
         body: "Apprenez en plus sur le biomimétisme avec une expérience ludique et interactive.",
-        video: "/assets/videos/video-intro.mp4-2.mp4",
+        video: "/assets/videos/video-intro-1.mp4",
     },
     {
         eyebrow: "Comment faire le lien",
         showLogo: false,
         body: "Associez chaque carte de la nature à son innovation pour découvrir le lien qui les unit.",
-        video: "/assets/videos/video-intro.mp4-2.mp4",
+        video: "/assets/videos/video_reussite.mp4",
     },
     {
         eyebrow: "Besoin d'aide ?",
         showLogo: false,
         body: "Des indices sont disponibles à tout moment pour vous guider si vous êtes bloqué.",
-        video: "/assets/videos/video-intro.mp4-2.mp4",
+        video: "/assets/videos/video_echec.mp4",
     },
 ];
 

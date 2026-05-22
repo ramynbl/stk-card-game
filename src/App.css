@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 40px 60px;
+  padding: 24px 60px;
   box-sizing: border-box;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .header-logo {
@@ -73,7 +73,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5vh; /* Pousse le bloc vers le bas de manière statique */
+  padding-top: 0;
   width: 100%;
 }
 
@@ -88,10 +88,11 @@
 /* Grilles */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 85px);
-  grid-auto-rows: 120px;
+  grid-template-columns: repeat(2, 105px);
+  grid-auto-rows: 148px;
   gap: 12px;
-  margin-top: 50px; /* Pour centrer verticalement avec la grande carte */
+  margin-top: 50px;
+  /* Pour centrer verticalement avec la grande carte */
 }
 
 .grid-square {
@@ -167,6 +168,29 @@
   border: 3px solid #01a091;
 }
 
+/* Drag & drop : curseur sur les minicards draggables */
+.grid-square[draggable="true"] {
+  cursor: grab;
+}
+
+.grid-square[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Feedback visuel sur la grande carte centrale survolée pendant un drag */
+.card.drop-target-active {
+  outline: 2px dashed #01a091;
+  outline-offset: 4px;
+}
+
+/* Texte d'encouragement entre deux paires */
+.continue-hint p {
+  font-size: 15px;
+  font-style: italic;
+  color: #5c5c5c;
+  text-align: center;
+}
+
 /* Cartes principales */
 .card-wrapper {
   display: flex;
@@ -175,7 +199,8 @@
   width: 340px;
   position: relative;
   will-change: transform;
-  min-height: 600px; /* Réserve l'espace pour le texte pour éviter le saut */
+  min-height: 600px;
+  /* Réserve l'espace pour le texte pour éviter le saut */
   perspective: 1000px;
 }
 
@@ -233,8 +258,15 @@
 }
 
 @keyframes placeholder-pulse {
-  0%, 100% { border-color: rgba(168, 157, 145, 0.25); }
-  50%       { border-color: rgba(1, 160, 145, 0.45); }
+
+  0%,
+  100% {
+    border-color: rgba(168, 157, 145, 0.25);
+  }
+
+  50% {
+    border-color: rgba(1, 160, 145, 0.45);
+  }
 }
 
 .card-placeholder-arrow {
@@ -354,8 +386,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  min-height: 200px;
+  margin-top: 20px;
+  min-height: 160px;
   width: 100%;
 }
 
@@ -496,49 +528,52 @@
   .container {
     padding: 25px 40px;
   }
-  
+
   .header {
     margin-bottom: 40px;
   }
-  
+
   .main-content {
-    padding-top: 3vh; /* Espacement fixe pour descendre le bloc sans centrage auto */
+    padding-top: 3vh;
+    /* Espacement fixe pour descendre le bloc sans centrage auto */
   }
 
   .card-wrapper {
-    min-height: 520px; /* Réserve l'espace pour le texte (420px carte + 100px texte) */
-    width: 298px; /* Maintient le ratio 340/480 pour éviter le rognage */
+    min-height: 520px;
+    /* Réserve l'espace pour le texte (420px carte + 100px texte) */
+    width: 298px;
+    /* Maintient le ratio 340/480 pour éviter le rognage */
   }
-  
+
   .card {
     height: 420px;
     margin-bottom: 16px;
   }
-  
+
   .grid-container {
     margin-top: 30px;
-    grid-template-columns: repeat(2, 71px);
-    grid-auto-rows: 100px;
+    grid-template-columns: repeat(2, 88px);
+    grid-auto-rows: 124px;
   }
-  
+
   .grid-square {
     border-radius: 4px;
   }
-  
+
   .bottom-action-section {
     margin-top: 20px;
     min-height: 150px;
   }
-  
+
   .explanation-text {
     margin-bottom: 24px;
   }
-  
+
   .explanation-text h2 {
     font-size: 22px;
     margin-bottom: 12px;
   }
-  
+
   .explanation-text p {
     font-size: 14px;
   }
@@ -546,19 +581,21 @@
 
 @media (max-height: 800px) {
   .card-wrapper {
-    min-height: 480px; /* Réserve l'espace (380px carte + 100px texte) */
-    width: 269px; /* Maintient le ratio 340/480 */
+    min-height: 480px;
+    /* Réserve l'espace (380px carte + 100px texte) */
+    width: 269px;
+    /* Maintient le ratio 340/480 */
   }
 
   .card {
     height: 380px;
   }
-  
+
   .grid-container {
-    grid-template-columns: repeat(2, 60px);
-    grid-auto-rows: 85px;
+    grid-template-columns: repeat(2, 74px);
+    grid-auto-rows: 105px;
   }
-  
+
   .bottom-action-section {
     margin-top: 10px;
     min-height: 130px;

@@ -20,8 +20,8 @@ const W = 63;
 const H = 90;
 const CARDS = [
     // === LIGNE DU HAUT (De gauche à droite) ===
-    [-40, -60, W, H, "base", 1],
-    [60, 0, W, H, "dark", 1],
+    [-30, -60, W, H, "base", 1],
+    [50, -5, W, H, "dark", 1],
     [140, 15, W, H, "alt", 1],
     [220, 35, W, H, "base", 1],
     [310, 10, W, H, "dark", 1],
@@ -109,11 +109,9 @@ function LandingScreen({ onStart }) {
             <div className={styles.content}>
                 {/* <Logo /> */}
                 <img src="/assets/images/STK-logo.svg" alt="STK" className={styles.logo} />
-                <h1>Titre que Noé va trouver</h1>
+                <h1>Ligne organique</h1>
                 <p className={styles.subtitle}>
-                    Apprenez en plus sur le biomimétisme avec
-                    <br />
-                    une expérience ludique wow trop bien
+                    Associez chaque carte de la nature à son innovation pour découvrir le lien qui les unit.
                 </p>
                 <div className={styles.cta}>
                     <Button onClick={() => {

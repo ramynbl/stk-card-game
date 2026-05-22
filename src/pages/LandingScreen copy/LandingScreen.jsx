@@ -19,8 +19,8 @@ const W = 63;
 const H = 90;
 const CARDS = [
     // === LIGNE DU HAUT (De gauche à droite) ===
-    [-40, -60, W, H, "base", 1],
-    [60, 0, W, H, "dark", 1],
+    [-30, -60, W, H, "base", 1],
+    [50, -5, W, H, "dark", 1],
     [140, 15, W, H, "alt", 1],
     [220, 35, W, H, "base", 1],
     [310, 10, W, H, "dark", 1],
