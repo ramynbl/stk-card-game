@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "inspiration": "Le martin-pêcheur",
+        "technologie": "le TGV Japonais",
+        "description_inspiration": "Son bec effilé fend l'air et l'eau en silence pour surprendre ses proies.",
+        "description_technologie": "Une forme aérodynamique pour réduire le bruit à haute vitesse en ville.",
+        "explication": "Le bec du martin-pêcheur pénètre l'eau sans créer d'onde de choc. En imitant sa forme fuselée, le nez du TGV fend l'air en silence et supprime le dérangeant \"bang\" à la sortie des tunnels."
+    },
+    {
+        "id": 2,
+        "inspiration": "Le gekko",
+        "technologie": "la geckskin",
+        "description_inspiration": "Capable de courir au plafond la tête en bas sans jamais craindre la chute.",
+        "description_technologie": "Un simple morceau de ce tissu peut suspendre un écran plat sur un mur.",
+        "explication": "Les pattes du gekko possèdent des millions de micro-poils qui s'aimantent à la matière à l'échelle moléculaire. Cet adhésif imite cette friction sèche pour fixer des charges lourdes sans colle."
+    },
+    {
+        "id": 3,
+        "inspiration": "La termitière",
+        "technologie": "le Eastgate Building",
+        "description_inspiration": "Ce monticule survit aux journées brûlantes et aux nuits glaciales du désert.",
+        "description_technologie": "Une solution constructive idéale pour les pays chauds qui manquent d'électricité.",
+        "explication": "La termitière aspire l'air frais par le bas et évacue le chaud par ses cheminées. Ce bâtiment imite ce poumon de terre pour s'auto-ventiler naturellement, réduisant sa climatisation de 90 %."
+    },
+    {
+        "id": 4,
+        "inspiration": "La trompe du moustique",
+        "technologie": "l'aiguille médicale indolore",
+        "description_inspiration": "Cet insecte pénètre la barrière cutanée sans que sa cible ne s'en rende compte.",
+        "description_technologie": "Un dispositif de soin si fin que le système nerveux ne détecte pas sa présence.",
+        "explication": "La trompe du moustique est conique et dentelée, réduisant au minimum le contact avec les nerfs. Cette aiguille médicale copie ce relief microscopique pour glisser dans la peau sans douleur."
+    },
+    {
+        "id": 5,
+        "inspiration": "Les fruits de bardane",
+        "technologie": "le velcro",
+        "description_inspiration": "Cette plante sauvage utilise les chiens et les promeneurs pour semer ses graines.",
+        "description_technologie": "Cette invention lie deux objets par simple pression mécanique, sans aucun adhésif.",
+        "explication": "Les crochets souples de ce fruit s'agrippent naturellement aux boucles formées par les poils d'animaux. Le velcro reproduit ce duo mécanique pour fermer et ouvrir des tissus à l'infini."
+    },
+    {
+        "id": 6,
+        "inspiration": "Le Nautile",
+        "technologie": "les turboréacteurs",
+        "description_inspiration": "Il glisse sans effort dans l'océan grâce à une forme hydrodynamique millénaire.",
+        "description_technologie": "Un système conçu pour fendre l'atmosphère à haute altitude et à grande vitesse.",
+        "explication": "La coquille en spirale du nautile canalise l'eau pour le propulser par réaction. Les turboréacteurs copient cette géométrie courbe pour comprimer et guider les flux d'air avec un rendement maximal."
+    },
+    {
+        "id": 7,
+        "inspiration": "Les nageoires de baleines à bosses",
+        "technologie": "les éoliennes",
+        "description_inspiration": "Sa morphologie brise la résistance du courant pour glisser avec un effort minimal.",
+        "description_technologie": "Ces pales géantes tournent même par vent très faible grâce à leur profil unique.",
+        "explication": "Les bosses sur les nageoires de la baleine créent des micro-vortex qui améliorent sa portance. Sculptées de la même façon, ces pales d'éoliennes captent le vent avec beaucoup moins de frottement."
+    },
+    {
+        "id": 8,
+        "inspiration": "Les lucioles",
+        "technologie": "les lampes LED",
+        "description_inspiration": "Son signal d'amour doit percer la nuit noire pour attirer un partenaire lointain.",
+        "description_technologie": "Une technologie idéale pour concevoir des écrans et des balises ultra-lumineux.",
+        "explication": "Les écailles en dents de scie de la luciole empêchent sa lumière de refléter vers l'intérieur. En copiant ces micro-pentes sur les puces LED, on libère les rayons piégés pour briller 55% plus fort."
+    },
+    {
+        "id": 9,
+        "inspiration": "Le papillon Greta oto",
+        "technologie": "les verres anti-reflet",
+        "description_inspiration": "Ses membranes ne créent aucun éclat brillant qui pourrait trahir sa présence.",
+        "description_technologie": "Permet de lire son smartphone en plein soleil sans être gêné par son propre visage.",
+        "explication": "Les ailes de ce papillon possèdent un relief invisible qui empêche la lumière de rebondir. En copiant cette surface texturée sur les écrans et les lunettes, on élimine enfin l'effet miroir."
+    },
+    {
+        "id": 10,
+        "inspiration": "La peau du requin",
+        "technologie": "les combinaisons de natation",
+        "description_inspiration": "Son corps est recouvert de millions de micro-dents alignées face au courant.",
+        "description_technologie": "Une innovation textile qui a bousculé tous les records du monde de vitesse.",
+        "explication": "La peau de ce prédateur est couverte de micro-dentelures qui canalisent l'eau et éliminent les turbulences. Cette combinaison imite ce relief rugueux pour aider le nageur à glisser bien plus vite."
+    },
+    {
+        "id": 11,
+        "inspiration": "L'aile de papillon",
+        "technologie": "les panneaux solaires",
+        "description_inspiration": "À sang froid, il doit réguler sa température interne pour pouvoir prendre son envol.",
+        "description_technologie": "Un récepteur d'énergie extérieure qui s'auto-refroidit pour rester performant.",
+        "explication": "Les ailes de ce papillon rejettent la chaleur sous forme d'ondes pour éviter de surchauffer. En imitant cette régulation thermique, ces panneaux solaires restent frais et gardent un rendement maximal."
+    }
+]

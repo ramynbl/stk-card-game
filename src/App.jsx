@@ -25,6 +25,15 @@ function App() {
     soundManager.init();
   }, []);
 
+  // 🚧 DEV ONLY — Shift+F pour sauter à l'écran de fin. Supprimer avant livraison.
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'F' && e.shiftKey) setAppView('end');
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
+
   useEffect(() => {
     if (appView === 'transition') {
       soundManager.play('levelTransition');
@@ -52,6 +61,13 @@ function App() {
     setAppView('game');
   };
 
+  const handleGoHome = () => {
+    soundManager.play('button');
+    setStarted(false);
+    setSeqIndex(0);
+    setAppView('game');
+  };
+
   return (
     <div className="container">
       <AnimatePresence mode="wait">
@@ -62,6 +78,7 @@ function App() {
             sequenceNumber={seqIndex + 1}
             totalSequences={TOTAL_SEQUENCES}
             onComplete={handleSequenceComplete}
+            onHome={handleGoHome}
           />
         )}
 
@@ -101,22 +118,40 @@ function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <img src="/assets/images/STK-logo.svg" alt="STK Architecture" className="header-logo end-screen-logo" />
             <h2 className="transition-title">
               Parcours<br />
               <span style={{ fontStyle: 'italic' }}>terminé</span>
             </h2>
-            <p style={{ textAlign: 'center', color: '#5c5c5c', marginBottom: '40px', fontSize: '15px' }}>
-              Vous avez découvert {pairsData.metadata.totalPairs} liens biomimétiques.
+            <p className="end-description">
+              Vous avez exploré{' '}
+              <span style={{ fontFamily: '"DM Serif Display", serif', fontWeight: 400, color: '#1a1a1a' }}>
+                {pairsData.metadata.totalPairs}
+              </span>
+              {' '}liens entre le vivant et l'innovation.
             </p>
-            <button
+            <p className="end-accroche">
+              Le biomimétisme inspire chaque projet que nous concevons.
+            </p>
+            <a
+              href="https://stk-architecture.com/projets"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-commencer"
+              style={{ textDecoration: 'none', marginTop: '12px' }}
+              onClick={() => soundManager.play('button')}
+            >
+              Découvrir les projets STK
+            </a>
+            <button
+              className="end-replay"
               onClick={() => {
                 soundManager.play('button');
                 setSeqIndex(0);
                 setAppView('game');
               }}
             >
-              Recommencer
+              Rejouer le parcours
             </button>
           </motion.main>
         )}
