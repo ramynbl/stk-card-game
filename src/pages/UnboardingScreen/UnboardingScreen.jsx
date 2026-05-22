@@ -5,7 +5,7 @@ import styles from "./UnboardingScreen.module.css";
 
 const SLIDES = [
     {
-        eyebrow: null,
+        eyebrow: "Le biomimétisme",
         showLogo: true,
         body: "Apprenez en plus sur le biomimétisme avec une expérience ludique et interactive.",
     },
@@ -29,11 +29,12 @@ function UnboardingScreen({ onComplete }) {
 
     const goNext = useCallback(() => {
         if (!isLast) {
-            setIndex(i => i + 1);
+            setIndex((i) => i + 1);
         } else {
             setExiting(true);
         }
     }, [isLast]);
+
 
     return (
         <div className={styles.page}>
@@ -51,29 +52,29 @@ function UnboardingScreen({ onComplete }) {
 
                         <div className={styles.textBlock}>
                             {slide.eyebrow && (
-                                <p className={styles.eyebrow}>{slide.eyebrow}</p>
+                                <p className={styles.eyebrow}>
+                                    {slide.eyebrow}
+                                </p>
                             )}
-                            {slide.showLogo && (
-                                <img
-                                    src="/assets/images/STK-logo.svg"
-                                    alt="STK"
-                                    className={styles.logo}
-                                />
-                            )}
+
                             <p className={styles.body}>{slide.body}</p>
                         </div>
                     </motion.div>
                 </AnimatePresence>
 
                 <div className={styles.footer}>
-                    <Button onClick={goNext} disabled={exiting}>
-                        {isLast ? "Commencer" : "Suivant"}
-                    </Button>
+                    <div className={styles.controls}>
+                        <Button onClick={goNext} disabled={exiting}>
+                            {isLast ? "Commencer" : "Suivant"}
+                        </Button>
+                    </div>
                     <div className={styles.dots}>
                         {SLIDES.map((_, i) => (
-                            <span
+                            <button
                                 key={i}
                                 className={`${styles.dot} ${i === index ? styles.dotActive : i < index ? styles.dotDone : ""}`}
+                                onClick={() => !exiting && setIndex(i)}
+                                aria-label={`Slide ${i + 1}`}
                             />
                         ))}
                     </div>
