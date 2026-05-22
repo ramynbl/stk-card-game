@@ -75,7 +75,6 @@ export default function GameRound({ pairs, sequenceNumber, totalSequences, onCom
 
   // Bloqué uniquement pendant les animations (pas pendant 'linked' où on peut re-sélectionner)
   const isAnimating = ['linking', 'linking-wrong', 'shaking', 'separating'].includes(linkStatus);
-  const isLocked = isAnimating;
   const allFound = matchedPairIds.length === pairs.length;
 
   const selectedLeftPair  = pairs.find(p => p.id === selectedLeft)  ?? null;

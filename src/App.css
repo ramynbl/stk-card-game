@@ -136,7 +136,7 @@
 .grid-square.matched {
   cursor: default;
   pointer-events: none;
-  background-color: rgba(108, 128, 109, 0.08);
+  background-color: rgba(1, 160, 145, 0.08);
 }
 
 .grid-square.matched .grid-img {
@@ -152,7 +152,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #6c806d;
+  background-color: #01a091;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +164,7 @@
 
 /* Effet Selected (Contour vert) */
 .grid-square.selected {
-  border: 3px solid #6c806d; /* Vert foncé */
+  border: 3px solid #01a091;
 }
 
 /* Cartes principales */
@@ -234,7 +234,7 @@
 
 @keyframes placeholder-pulse {
   0%, 100% { border-color: rgba(168, 157, 145, 0.25); }
-  50%       { border-color: rgba(108, 128, 109, 0.45); }
+  50%       { border-color: rgba(1, 160, 145, 0.45); }
 }
 
 .card-placeholder-arrow {
@@ -318,9 +318,9 @@
   margin: 0 auto 12px;
   padding: 8px 16px;
   background: transparent;
-  border: 1px solid rgba(108, 128, 109, 0.4);
+  border: 1px solid rgba(1, 160, 145, 0.4);
   border-radius: 999px;
-  color: #6c806d;
+  color: #01a091;
   font-family: inherit;
   font-size: 13px;
   font-weight: 500;
@@ -330,9 +330,9 @@
 }
 
 .hint-toggle:hover {
-  background-color: rgba(108, 128, 109, 0.1);
-  border-color: #6c806d;
-  color: #4f614f;
+  background-color: rgba(1, 160, 145, 0.08);
+  border-color: #01a091;
+  color: #007c70;
 }
 
 .hint-toggle-icon {
@@ -342,7 +342,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #6c806d;
+  background-color: #01a091;
   color: #ffffff;
   font-size: 12px;
   font-weight: 700;
@@ -562,5 +562,52 @@
   .bottom-action-section {
     margin-top: 10px;
     min-height: 130px;
+  }
+}
+
+/* Bouton pour couper le son */
+.sound-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sound-toggle-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sound-toggle-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.sound-toggle-btn:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .sound-toggle-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
   }
 }
