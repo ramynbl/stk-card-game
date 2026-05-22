@@ -8,6 +8,7 @@ import pairsData from './data/pairs.json';
 import { soundManager } from './utils/soundManager';
 import GameRound from './components/GameRound';
 import LandingScreen from './pages/LandingScreen/LandingScreen';
+import UnboardingScreen from './pages/UnboardingScreen/UnboardingScreen';
 
 const SEQUENCES = pairsData.metadata.sequences.map(seq =>
   seq.pairIds.map(id => pairsData.pairs.find(p => p.id === id))
@@ -16,6 +17,7 @@ const TOTAL_SEQUENCES = SEQUENCES.length;
 
 function App() {
   const [started, setStarted] = useState(false);
+  const [onboarded, setOnboarded] = useState(false);
   const [seqIndex, setSeqIndex] = useState(0);
   const [appView, setAppView] = useState('game');
 
@@ -31,6 +33,10 @@ function App() {
 
   if (!started) {
     return <LandingScreen onStart={() => setStarted(true)} />;
+  }
+
+  if (!onboarded) {
+    return <UnboardingScreen onComplete={() => setOnboarded(true)} />;
   }
 
   const handleSequenceComplete = () => {

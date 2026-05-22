@@ -1,0 +1,105 @@
+.page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 620px;
+    padding: 0 24px;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+}
+
+.videoPlaceholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #d4d1cb;
+    border-radius: 16px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+}
+
+.body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-text);
+    opacity: 0.2;
+    transition: opacity var(--transition-default), transform var(--transition-default);
+}
+
+.dotDone {
+    opacity: 0.4;
+}
+
+.dotActive {
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.fadeOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg);
+    pointer-events: none;
+}
