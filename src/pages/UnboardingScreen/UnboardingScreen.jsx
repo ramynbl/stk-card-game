@@ -7,7 +7,7 @@ const SLIDES = [
     {
         eyebrow: "Le biomimétisme",
         showLogo: true,
-        body: "Apprenez en plus sur le biomimétisme avec une expérience ludique et interactive.",
+        body: "Decouvrez le biomimétisme avec une expérience ludique et interactive.",
         video: "/assets/videos/video-intro-1.mp4",
     },
     {
