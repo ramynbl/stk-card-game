@@ -90,8 +90,8 @@
 /* Grilles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 105px);
-    grid-auto-rows: 148px;
+    grid-template-columns: repeat(2, 158px);
+    grid-auto-rows: 222px;
     gap: 12px;
     margin-top: 24px;
 }
@@ -560,8 +560,8 @@
 
     .grid-container {
         margin-top: 30px;
-        grid-template-columns: repeat(2, 88px);
-        grid-auto-rows: 124px;
+        grid-template-columns: repeat(2, 132px);
+        grid-auto-rows: 186px;
     }
 
     .grid-square {
@@ -601,8 +601,8 @@
     }
 
     .grid-container {
-        grid-template-columns: repeat(2, 74px);
-        grid-auto-rows: 105px;
+        grid-template-columns: repeat(2, 111px);
+        grid-auto-rows: 158px;
     }
 
     .bottom-action-section {
